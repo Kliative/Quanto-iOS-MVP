@@ -14,6 +14,7 @@
 		083AF8571E9F9A3F00AE5445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083AF8551E9F9A3F00AE5445 /* LaunchScreen.storyboard */; };
 		083AF8621E9F9A3F00AE5445 /* QuantoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF8611E9F9A3F00AE5445 /* QuantoTests.swift */; };
 		083AF86D1E9F9A3F00AE5445 /* QuantoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF86C1E9F9A3F00AE5445 /* QuantoUITests.swift */; };
+		7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBE751EEACC7C00790B54 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		083AF8681E9F9A3F00AE5445 /* QuantoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		083AF86C1E9F9A3F00AE5445 /* QuantoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantoUITests.swift; sourceTree = "<group>"; };
 		083AF86E1E9F9A3F00AE5445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A1DBE751EEACC7C00790B54 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = ../ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				083AF84C1E9F9A3F00AE5445 /* AppDelegate.swift */,
 				083AF84E1E9F9A3F00AE5445 /* ViewController.swift */,
+				7A1DBE751EEACC7C00790B54 /* ProductCell.swift */,
 				083AF8501E9F9A3F00AE5445 /* Main.storyboard */,
 				083AF8531E9F9A3F00AE5445 /* Assets.xcassets */,
 				083AF8551E9F9A3F00AE5445 /* LaunchScreen.storyboard */,
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */,
 				083AF84F1E9F9A3F00AE5445 /* ViewController.swift in Sources */,
 				083AF84D1E9F9A3F00AE5445 /* AppDelegate.swift in Sources */,
 			);
@@ -512,6 +516,7 @@
 				083AF8731E9F9A3F00AE5445 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		083AF8741E9F9A3F00AE5445 /* Build configuration list for PBXNativeTarget "QuantoTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +525,7 @@
 				083AF8761E9F9A3F00AE5445 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		083AF8771E9F9A3F00AE5445 /* Build configuration list for PBXNativeTarget "QuantoUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +534,7 @@
 				083AF8791E9F9A3F00AE5445 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

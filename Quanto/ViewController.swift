@@ -12,11 +12,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var productListTableView:UITableView!
     
+    @IBOutlet weak var calculaterView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.productListTableView.delegate = self
         self.productListTableView.dataSource = self
+        
+        
+        calculaterView.center.y = self.view.frame.height + 100
+        
+        UIView.animate(withDuration: 0.5) {
+            self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
+        }
     }
 
 
@@ -36,7 +45,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 4
+    }
+    
+    @IBAction func closeCalculatorViewPressed(_ sender: Any) {
+        UIView.animate(withDuration: 0.5) {
+            self.calculaterView.center.y = self.view.frame.height + 200
+        }
+    }
+    @IBAction func showCalculatorViewPressed(_ sender: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.5) {
+            self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
+        }
     }
 
 }

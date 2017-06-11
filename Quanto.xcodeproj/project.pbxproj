@@ -15,6 +15,13 @@
 		083AF8621E9F9A3F00AE5445 /* QuantoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF8611E9F9A3F00AE5445 /* QuantoTests.swift */; };
 		083AF86D1E9F9A3F00AE5445 /* QuantoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF86C1E9F9A3F00AE5445 /* QuantoUITests.swift */; };
 		7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBE751EEACC7C00790B54 /* ProductCell.swift */; };
+		7A1DBEB91EED802600790B54 /* Bariol_Bold_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB21EED802600790B54 /* Bariol_Bold_Italic.otf */; };
+		7A1DBEBA1EED802600790B54 /* Bariol_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB31EED802600790B54 /* Bariol_Bold.otf */; };
+		7A1DBEBB1EED802600790B54 /* Bariol_Light_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB41EED802600790B54 /* Bariol_Light_Italic.otf */; };
+		7A1DBEBC1EED802600790B54 /* Bariol_Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB51EED802600790B54 /* Bariol_Light.otf */; };
+		7A1DBEBD1EED802600790B54 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB61EED802600790B54 /* Bariol_Regular.otf */; };
+		7A1DBEBE1EED802600790B54 /* Bariol_Thin_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */; };
+		7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		083AF86C1E9F9A3F00AE5445 /* QuantoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantoUITests.swift; sourceTree = "<group>"; };
 		083AF86E1E9F9A3F00AE5445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A1DBE751EEACC7C00790B54 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = ../ProductCell.swift; sourceTree = "<group>"; };
+		7A1DBEB21EED802600790B54 /* Bariol_Bold_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Bold_Italic.otf; sourceTree = "<group>"; };
+		7A1DBEB31EED802600790B54 /* Bariol_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Bold.otf; sourceTree = "<group>"; };
+		7A1DBEB41EED802600790B54 /* Bariol_Light_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Light_Italic.otf; sourceTree = "<group>"; };
+		7A1DBEB51EED802600790B54 /* Bariol_Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Light.otf; sourceTree = "<group>"; };
+		7A1DBEB61EED802600790B54 /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
+		7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin_Italic.otf; sourceTree = "<group>"; };
+		7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin.otf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				083AF84C1E9F9A3F00AE5445 /* AppDelegate.swift */,
+				7A1DBEB11EED800F00790B54 /* Fonts */,
 				083AF84E1E9F9A3F00AE5445 /* ViewController.swift */,
 				7A1DBE751EEACC7C00790B54 /* ProductCell.swift */,
 				083AF8501E9F9A3F00AE5445 /* Main.storyboard */,
@@ -126,6 +141,20 @@
 				083AF86E1E9F9A3F00AE5445 /* Info.plist */,
 			);
 			path = QuantoUITests;
+			sourceTree = "<group>";
+		};
+		7A1DBEB11EED800F00790B54 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7A1DBEB21EED802600790B54 /* Bariol_Bold_Italic.otf */,
+				7A1DBEB31EED802600790B54 /* Bariol_Bold.otf */,
+				7A1DBEB41EED802600790B54 /* Bariol_Light_Italic.otf */,
+				7A1DBEB51EED802600790B54 /* Bariol_Light.otf */,
+				7A1DBEB61EED802600790B54 /* Bariol_Regular.otf */,
+				7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */,
+				7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,7 +269,14 @@
 			files = (
 				083AF8571E9F9A3F00AE5445 /* LaunchScreen.storyboard in Resources */,
 				083AF8541E9F9A3F00AE5445 /* Assets.xcassets in Resources */,
+				7A1DBEBC1EED802600790B54 /* Bariol_Light.otf in Resources */,
+				7A1DBEBD1EED802600790B54 /* Bariol_Regular.otf in Resources */,
+				7A1DBEBE1EED802600790B54 /* Bariol_Thin_Italic.otf in Resources */,
+				7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */,
 				083AF8521E9F9A3F00AE5445 /* Main.storyboard in Resources */,
+				7A1DBEB91EED802600790B54 /* Bariol_Bold_Italic.otf in Resources */,
+				7A1DBEBA1EED802600790B54 /* Bariol_Bold.otf in Resources */,
+				7A1DBEBB1EED802600790B54 /* Bariol_Light_Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,5 +32,15 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Bariol_Regular.otf</string>
+		<string>Bariol_Light.otf</string>
+		<string>Bariol_Thin.otf</string>
+		<string>Bariol_Bold.otf</string>
+		<string>Bariol_LIght_Italic.otf</string>
+		<string>Bariol_Thin_Italic.otf</string>
+		<string>Bariol_Bold_Italic.otf</string>
+	</array>
 </dict>
 </plist>

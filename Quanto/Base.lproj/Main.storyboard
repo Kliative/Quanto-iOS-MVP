@@ -167,13 +167,13 @@
                                                     <rect key="frame" x="8" y="8" width="359" height="74"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xD8-zJ-q3w">
-                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="74"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="66" height="74"/>
                                                             <subviews>
                                                                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="McMeal" translatesAutoresizingMaskIntoConstraints="NO" id="P5i-Kp-KLb">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="62" height="64"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="66" height="64"/>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="More Expensive" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btq-6y-WxK">
-                                                                    <rect key="frame" x="0.0" y="64" width="62" height="10"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" text="McDonalds Meal" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Btq-6y-WxK">
+                                                                    <rect key="frame" x="0.0" y="64" width="66" height="10"/>
                                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="10"/>
                                                                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="huX-VD-m21">
-                                                            <rect key="frame" x="81" y="0.0" width="100" height="74"/>
+                                                            <rect key="frame" x="85" y="0.0" width="100" height="74"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P3S-yw-tLd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
@@ -231,25 +231,25 @@
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Heb-Ja-JIc">
-                                                            <rect key="frame" x="200" y="0.0" width="159" height="74"/>
+                                                            <rect key="frame" x="204" y="0.0" width="155" height="74"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£ 0.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ke8-mO-csm">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="159" height="54"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="155" height="54"/>
                                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="20"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n78-FM-fCW">
-                                                                    <rect key="frame" x="0.0" y="54" width="159" height="20"/>
+                                                                    <rect key="frame" x="0.0" y="54" width="155" height="20"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More Expensive" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qua-uN-rk2">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="139" height="20"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="135" height="20"/>
                                                                             <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="14"/>
                                                                             <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moreExpensive_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="fw6-tf-CXF">
-                                                                            <rect key="frame" x="139" y="0.0" width="20" height="20"/>
+                                                                            <rect key="frame" x="135" y="0.0" width="20" height="20"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" constant="20" id="IPg-aK-KDH"/>
                                                                                 <constraint firstAttribute="width" constant="20" id="glR-Hc-5vT"/>
@@ -286,8 +286,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-BF-FWT">
-                                <rect key="frame" x="10000" y="432" width="375" height="235"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-BF-FWT">
+                                <rect key="frame" x="0.0" y="432" width="375" height="235"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYj-RG-ppR">
                                         <rect key="frame" x="0.0" y="-1" width="375" height="59"/>

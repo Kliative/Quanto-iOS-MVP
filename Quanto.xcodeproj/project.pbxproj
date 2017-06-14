@@ -22,6 +22,7 @@
 		7A1DBEBD1EED802600790B54 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB61EED802600790B54 /* Bariol_Regular.otf */; };
 		7A1DBEBE1EED802600790B54 /* Bariol_Thin_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */; };
 		7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */; };
+		7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBEC01EF172BE00790B54 /* CityCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		7A1DBEB61EED802600790B54 /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin_Italic.otf; sourceTree = "<group>"; };
 		7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin.otf; sourceTree = "<group>"; };
+		7A1DBEC01EF172BE00790B54 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				7A1DBEB11EED800F00790B54 /* Fonts */,
 				083AF84E1E9F9A3F00AE5445 /* MainVC.swift */,
 				7A1DBE751EEACC7C00790B54 /* ProductCell.swift */,
+				7A1DBEC01EF172BE00790B54 /* CityCell.swift */,
 				083AF8501E9F9A3F00AE5445 /* Main.storyboard */,
 				083AF8531E9F9A3F00AE5445 /* Assets.xcassets */,
 				083AF8551E9F9A3F00AE5445 /* LaunchScreen.storyboard */,
@@ -303,6 +306,7 @@
 			files = (
 				7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */,
 				083AF84F1E9F9A3F00AE5445 /* MainVC.swift in Sources */,
+				7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */,
 				083AF84D1E9F9A3F00AE5445 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

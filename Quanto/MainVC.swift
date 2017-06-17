@@ -87,6 +87,18 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+//    Dont know how to do this Yet!!ç
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let label = UILabel()
+//        let headerView = UIView()
+//        
+//       
+//            label.textColor = UIColor.white
+//            headerView.backgroundColor = UIColor.init(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
+//        
+//            headerView.addSubview(label)
+//            return headerView
+//    }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         

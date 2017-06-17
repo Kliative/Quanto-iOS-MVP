@@ -11,6 +11,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Bariol_Bold.otf">
+            <string>Bariol-Bold</string>
+        </array>
         <array key="Bariol_Regular.otf">
             <string>Bariol-Regular</string>
         </array>
@@ -557,44 +560,69 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aoi-3W-pQH">
                                 <rect key="frame" x="0.0" y="216" width="375" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="spend-section-bg" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-OH-nsf">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-OH-nsf">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
+                                        <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-W1-5BC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Country and Convert" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-W1-5BC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+                                        <color key="backgroundColor" red="0.43921568630000002" green="0.1333333333" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="94C-cl-Rdg"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bp-F8-onr">
-                                        <rect key="frame" x="0.0" y="28" width="138" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="0Bp-F8-onr" secondAttribute="height" multiplier="19:4" id="eUS-3p-NRD"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
-                                        <state key="normal" title="Base City">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="baseCityBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eEU-Zb-PLX"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esr-O7-7Jk">
-                                        <rect key="frame" x="237" y="28" width="138" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="esr-O7-7Jk" secondAttribute="height" multiplier="19:4" id="3eE-PB-sly"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
-                                        <state key="normal" title="Destination City">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="destCityBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bu0-Yq-8oe"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C27-8K-fDG">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="29"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bp-F8-onr">
+                                                <rect key="frame" x="0.0" y="0.0" width="138" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="0Bp-F8-onr" secondAttribute="height" multiplier="19:4" id="eUS-3p-NRD"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
+                                                <state key="normal" title="Base City" backgroundImage="baseBtn-s">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleShadowColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="baseBtn-d"/>
+                                                <state key="highlighted" backgroundImage="baseBtn-d">
+                                                    <color key="titleColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="baseCityBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eEU-Zb-PLX"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-ej-GRA">
+                                                <rect key="frame" x="138" y="0.0" width="100" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="A9c-ej-GRA" secondAttribute="height" multiplier="100:29" id="Ff9-3i-3E6"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Bariol-Bold" family="Bariol" pointSize="17"/>
+                                                <color key="textColor" red="0.43921568630000002" green="0.1333333333" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esr-O7-7Jk">
+                                                <rect key="frame" x="238" y="0.0" width="137" height="29"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="esr-O7-7Jk" secondAttribute="height" multiplier="19:4" id="3eE-PB-sly"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
+                                                <state key="normal" title="Destination City" backgroundImage="destBtn-s">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected" backgroundImage="destBtn-d"/>
+                                                <state key="highlighted" backgroundImage="destBtn-d">
+                                                    <color key="titleColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="destCityBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bu0-Yq-8oe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-Eo-d4b">
                                         <rect key="frame" x="23" y="67" width="330" height="74"/>
                                         <subviews>
@@ -740,15 +768,14 @@
                                     <constraint firstItem="BIC-W1-5BC" firstAttribute="top" secondItem="aoi-3W-pQH" secondAttribute="top" id="13V-tb-MSh"/>
                                     <constraint firstAttribute="height" constant="150" id="16x-QO-o09"/>
                                     <constraint firstAttribute="trailing" secondItem="BIC-W1-5BC" secondAttribute="trailing" id="2Ql-eQ-iZN"/>
-                                    <constraint firstItem="esr-O7-7Jk" firstAttribute="top" secondItem="BIC-W1-5BC" secondAttribute="bottom" id="6ch-jQ-f1E"/>
-                                    <constraint firstItem="0Bp-F8-onr" firstAttribute="leading" secondItem="aoi-3W-pQH" secondAttribute="leading" id="JOA-6k-oVI"/>
-                                    <constraint firstItem="0Bp-F8-onr" firstAttribute="top" secondItem="BIC-W1-5BC" secondAttribute="bottom" id="LFR-4t-p7M"/>
+                                    <constraint firstItem="C27-8K-fDG" firstAttribute="leading" secondItem="aoi-3W-pQH" secondAttribute="leading" id="PGg-Y1-Y1J"/>
                                     <constraint firstItem="AeK-OH-nsf" firstAttribute="top" secondItem="aoi-3W-pQH" secondAttribute="top" id="V2s-j6-Mv9"/>
+                                    <constraint firstAttribute="trailing" secondItem="C27-8K-fDG" secondAttribute="trailing" id="ZY5-nY-BiV"/>
                                     <constraint firstItem="Z8q-Eo-d4b" firstAttribute="centerX" secondItem="aoi-3W-pQH" secondAttribute="centerX" id="bJv-qS-Tzc"/>
                                     <constraint firstAttribute="bottom" secondItem="Z8q-Eo-d4b" secondAttribute="bottom" constant="9" id="i1K-fX-UaE"/>
                                     <constraint firstItem="AeK-OH-nsf" firstAttribute="leading" secondItem="aoi-3W-pQH" secondAttribute="leading" id="j2M-ok-6Bs"/>
+                                    <constraint firstItem="C27-8K-fDG" firstAttribute="top" secondItem="BIC-W1-5BC" secondAttribute="bottom" id="sdO-XG-Dv2"/>
                                     <constraint firstAttribute="trailing" secondItem="AeK-OH-nsf" secondAttribute="trailing" id="vYX-12-a7b"/>
-                                    <constraint firstAttribute="trailing" secondItem="esr-O7-7Jk" secondAttribute="trailing" id="wxY-iz-uEN"/>
                                     <constraint firstItem="BIC-W1-5BC" firstAttribute="leading" secondItem="aoi-3W-pQH" secondAttribute="leading" id="ytT-9s-Lsp"/>
                                     <constraint firstAttribute="bottom" secondItem="AeK-OH-nsf" secondAttribute="bottom" id="zWf-sg-UNE"/>
                                 </constraints>
@@ -773,8 +800,8 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7k-wo-aaS">
-                                                                    <rect key="frame" x="8" y="11" width="171" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Base Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7k-wo-aaS">
+                                                                    <rect key="frame" x="8" y="11" width="172" height="21"/>
                                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="18"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -816,9 +843,9 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="43.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFp-Xe-8WD">
-                                                                    <rect key="frame" x="8" y="11" width="171" height="21"/>
-                                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Destination" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFp-Xe-8WD">
+                                                                    <rect key="frame" x="8" y="11" width="172" height="21"/>
+                                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
@@ -902,8 +929,11 @@
         <image name="Meal_r" width="29" height="27"/>
         <image name="OneWayTicket_r" width="20" height="25"/>
         <image name="ZA" width="28" height="20"/>
+        <image name="baseBtn-d" width="137" height="29"/>
+        <image name="baseBtn-s" width="137" height="29"/>
+        <image name="destBtn-d" width="137" height="29"/>
+        <image name="destBtn-s" width="137" height="29"/>
         <image name="logo_icon" width="49" height="49"/>
         <image name="moreExpensive_arrow" width="15" height="8"/>
-        <image name="spend-section-bg" width="375" height="123"/>
     </resources>
 </document>

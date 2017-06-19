@@ -10,6 +10,7 @@ import UIKit
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var cityListStackV: UIStackView!
     @IBOutlet weak var baseCountryBtn: UIButton!
     @IBOutlet weak var destCountryBtn: UIButton!
 
@@ -41,13 +42,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.destCountryBtn.contentHorizontalAlignment = .left
         
         calculaterView.center.y = self.view.frame.height + 100
-        self.bcView.center.x = self.view.frame.width - self.bcView.frame.width
+        
+        cityListStackV.center.x = self.view.frame.width + cityListStackV.frame.width
+        
+        self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.dcView.frame.width
         self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
         
         UIView.animate(withDuration: 1) {
             self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
-            self.bcView.center.x = self.view.frame.width + self.bcView.frame.width
-            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width
+//            self.cityListStackV.center.x = (self.view.frame.width - self.view.frame.width) + self.cityListStackV.frame.width/2
+            self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
+            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
         }
     }
 
@@ -87,7 +92,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-//    Dont know how to do this Yet!!ç
+//    Dont know how to do this Yet!!
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        let label = UILabel()
 //        let headerView = UIView()
@@ -100,17 +105,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 //            return headerView
 //    }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-            if tableView == baseCityTableView {
-                return "Base City"
-            } else if tableView == destCityTableView {
-                return "Destination City"
-            } else {
-                return nil
-            }
-        
-    }
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//            if tableView == baseCityTableView {
+//                return "Base City"
+//            } else if tableView == destCityTableView {
+//                return "Destination City"
+//            } else {
+//                return nil
+//            }
+//        
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

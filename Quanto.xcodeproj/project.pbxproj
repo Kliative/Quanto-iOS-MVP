@@ -11,7 +11,6 @@
 		083AF84F1E9F9A3F00AE5445 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF84E1E9F9A3F00AE5445 /* MainVC.swift */; };
 		083AF8521E9F9A3F00AE5445 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083AF8501E9F9A3F00AE5445 /* Main.storyboard */; };
 		083AF8541E9F9A3F00AE5445 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083AF8531E9F9A3F00AE5445 /* Assets.xcassets */; };
-		083AF8571E9F9A3F00AE5445 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083AF8551E9F9A3F00AE5445 /* LaunchScreen.storyboard */; };
 		083AF8621E9F9A3F00AE5445 /* QuantoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF8611E9F9A3F00AE5445 /* QuantoTests.swift */; };
 		083AF86D1E9F9A3F00AE5445 /* QuantoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF86C1E9F9A3F00AE5445 /* QuantoUITests.swift */; };
 		7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBE751EEACC7C00790B54 /* ProductCell.swift */; };
@@ -23,6 +22,9 @@
 		7A1DBEBE1EED802600790B54 /* Bariol_Thin_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */; };
 		7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */; };
 		7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBEC01EF172BE00790B54 /* CityCell.swift */; };
+		7A75586F1EF684E500EC2396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A75586D1EF684E500EC2396 /* LaunchScreen.storyboard */; };
+		7AE3F7291EF6879A00384FC9 /* LaunchScreen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AE3F7281EF6879A00384FC9 /* LaunchScreen@3x.png */; };
+		7AE3F72B1EF687EC00384FC9 /* LaunchScreen.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7AE3F72A1EF687EC00384FC9 /* LaunchScreen.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +50,6 @@
 		083AF84E1E9F9A3F00AE5445 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		083AF8511E9F9A3F00AE5445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		083AF8531E9F9A3F00AE5445 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		083AF8561E9F9A3F00AE5445 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		083AF8581E9F9A3F00AE5445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		083AF85D1E9F9A3F00AE5445 /* QuantoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		083AF8611E9F9A3F00AE5445 /* QuantoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantoTests.swift; sourceTree = "<group>"; };
@@ -65,6 +66,9 @@
 		7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin_Italic.otf; sourceTree = "<group>"; };
 		7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin.otf; sourceTree = "<group>"; };
 		7A1DBEC01EF172BE00790B54 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		7A75586E1EF684E500EC2396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Quanto/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7AE3F7281EF6879A00384FC9 /* LaunchScreen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreen@3x.png"; sourceTree = "<group>"; };
+		7AE3F72A1EF687EC00384FC9 /* LaunchScreen.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = LaunchScreen.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,9 +124,10 @@
 				083AF84E1E9F9A3F00AE5445 /* MainVC.swift */,
 				7A1DBE751EEACC7C00790B54 /* ProductCell.swift */,
 				7A1DBEC01EF172BE00790B54 /* CityCell.swift */,
+				7AE3F7271EF6877300384FC9 /* images */,
 				083AF8501E9F9A3F00AE5445 /* Main.storyboard */,
 				083AF8531E9F9A3F00AE5445 /* Assets.xcassets */,
-				083AF8551E9F9A3F00AE5445 /* LaunchScreen.storyboard */,
+				7A75586D1EF684E500EC2396 /* LaunchScreen.storyboard */,
 				083AF8581E9F9A3F00AE5445 /* Info.plist */,
 			);
 			path = Quanto;
@@ -158,6 +163,15 @@
 				7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		7AE3F7271EF6877300384FC9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				7AE3F7281EF6879A00384FC9 /* LaunchScreen@3x.png */,
+				7AE3F72A1EF687EC00384FC9 /* LaunchScreen.pdf */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,15 +284,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083AF8571E9F9A3F00AE5445 /* LaunchScreen.storyboard in Resources */,
 				083AF8541E9F9A3F00AE5445 /* Assets.xcassets in Resources */,
 				7A1DBEBC1EED802600790B54 /* Bariol_Light.otf in Resources */,
 				7A1DBEBD1EED802600790B54 /* Bariol_Regular.otf in Resources */,
+				7AE3F72B1EF687EC00384FC9 /* LaunchScreen.pdf in Resources */,
+				7A75586F1EF684E500EC2396 /* LaunchScreen.storyboard in Resources */,
 				7A1DBEBE1EED802600790B54 /* Bariol_Thin_Italic.otf in Resources */,
 				7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */,
 				083AF8521E9F9A3F00AE5445 /* Main.storyboard in Resources */,
 				7A1DBEB91EED802600790B54 /* Bariol_Bold_Italic.otf in Resources */,
 				7A1DBEBA1EED802600790B54 /* Bariol_Bold.otf in Resources */,
+				7AE3F7291EF6879A00384FC9 /* LaunchScreen@3x.png in Resources */,
 				7A1DBEBB1EED802600790B54 /* Bariol_Light_Italic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,12 +367,13 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		083AF8551E9F9A3F00AE5445 /* LaunchScreen.storyboard */ = {
+		7A75586D1EF684E500EC2396 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				083AF8561E9F9A3F00AE5445 /* Base */,
+				7A75586E1EF684E500EC2396 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

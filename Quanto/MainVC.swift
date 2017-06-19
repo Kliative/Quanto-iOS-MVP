@@ -171,14 +171,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     
     func userDidEnterBaseData(data: CountryData) {
-        print("\(data.countryName)")
-        print("\(data.currencyCode)")
-        print("\(data.currencySymbol)")
-        print("\(data.cities)")
-        print("\(data.capitalName)")
-        print("\(self.productRangeSel)")
-
-        
         self.baseCountryKey = data.countryName
         self.baseCountryBtn.setTitle("\(data.countryName) [\(data.currencyCode)]", for: .normal)
         self.baseCurrSel = data.currencyCode
@@ -293,6 +285,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.cityIndexRow = indexPath.row
+        
         switch tableView
         {
         case productListTableView:

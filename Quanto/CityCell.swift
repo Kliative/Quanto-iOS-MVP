@@ -22,5 +22,9 @@ class CityCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configureCityCell(cityName:String){
+        self.cityLbl.text = cityName
+    }
 
 }

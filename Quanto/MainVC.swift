@@ -171,6 +171,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     
     func userDidEnterBaseData(data: CountryData) {
+        print("\(data.countryName)")
+        print("\(data.currencyCode)")
+        print("\(data.currencySymbol)")
+        print("\(data.cities)")
+        print("\(data.capitalName)")
+        print("\(self.productRangeSel)")
+
+        
         self.baseCountryKey = data.countryName
         self.baseCountryBtn.setTitle("\(data.countryName) [\(data.currencyCode)]", for: .normal)
         self.baseCurrSel = data.currencyCode
@@ -196,7 +204,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 return ProductCell()
             }
         case baseCityTableView :
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "CityBaseCell", for:indexPath) as? CityCell{
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "BaseCityCell", for:indexPath) as? CityCell{
                 cell.configureCityCell(cityName: self.baseCities[indexPath.row])
                 
                 return cell
@@ -205,7 +213,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 return CityCell()
             }
         case destCityTableView:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for:indexPath) as? CityCell{
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "DestCityCell", for:indexPath) as? CityCell{
                 cell.configureCityCell(cityName: self.destCities[indexPath.row])
                 
                 return cell
@@ -250,6 +258,19 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+//        if tableView == self.destCityTableView {
+//            return self.destCities.count
+//        } else if tableView == self.baseCityTableView {
+//            return self.baseCities.count
+//        } else {
+//            
+//            if self.baseProdListDict.count == self.destProdListDict.count {
+//                return self.baseProdListDict.count
+//            } else {
+//                return self.baseCityData.count
+//            }
+//            
+//        }
         
         switch tableView
         {
@@ -267,7 +288,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                  return self.destCities.count
                 
             default:
-                return 1
+                return 0
         }
     }
     
@@ -710,6 +731,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     func reCalc() {
         print("Supposed to reCalc numbers on screen based on new selection")
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "DestCountrySelSegue" {
+            let destVC: DestCurrVC = segue.destination as! DestCurrVC
+            destVC.delegate = self
+        }
+        if segue.identifier == "BaseCounrtySelSegue" {
+            let baseVC: BaseCurrVC = segue.destination as! BaseCurrVC
+            baseVC.delegate = self
+        }
     }
 
 

@@ -20,10 +20,10 @@
 		7A111ED51EF811650042ED78 /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111ED41EF811650042ED78 /* ExchangeService.swift */; };
 		7A111ED71EF812A40042ED78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A111ED61EF812A40042ED78 /* GoogleService-Info.plist */; };
 		7A111ED91EF815840042ED78 /* CountryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111ED81EF815840042ED78 /* CountryData.swift */; };
-		7A111EDB1EF815950042ED78 /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111EDA1EF815950042ED78 /* CityData.swift */; };
 		7A111EDD1EF8165F0042ED78 /* DestCurrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111EDC1EF8165F0042ED78 /* DestCurrVC.swift */; };
 		7A111EDF1EF816720042ED78 /* BaseCurrVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111EDE1EF816720042ED78 /* BaseCurrVC.swift */; };
 		7A111EE11EF816F60042ED78 /* CurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111EE01EF816F60042ED78 /* CurrencyCell.swift */; };
+		7A111EE51EF86B330042ED78 /* CityData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111EE41EF86B330042ED78 /* CityData.swift */; };
 		7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBE751EEACC7C00790B54 /* ProductCell.swift */; };
 		7A1DBEB91EED802600790B54 /* Bariol_Bold_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB21EED802600790B54 /* Bariol_Bold_Italic.otf */; };
 		7A1DBEBA1EED802600790B54 /* Bariol_Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB31EED802600790B54 /* Bariol_Bold.otf */; };
@@ -75,10 +75,10 @@
 		7A111ED41EF811650042ED78 /* ExchangeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeService.swift; sourceTree = "<group>"; };
 		7A111ED61EF812A40042ED78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A111ED81EF815840042ED78 /* CountryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryData.swift; sourceTree = "<group>"; };
-		7A111EDA1EF815950042ED78 /* CityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
 		7A111EDC1EF8165F0042ED78 /* DestCurrVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestCurrVC.swift; sourceTree = "<group>"; };
 		7A111EDE1EF816720042ED78 /* BaseCurrVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCurrVC.swift; sourceTree = "<group>"; };
 		7A111EE01EF816F60042ED78 /* CurrencyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyCell.swift; sourceTree = "<group>"; };
+		7A111EE41EF86B330042ED78 /* CityData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityData.swift; sourceTree = "<group>"; };
 		7A1DBE751EEACC7C00790B54 /* ProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProductCell.swift; path = ../ProductCell.swift; sourceTree = "<group>"; };
 		7A1DBEB21EED802600790B54 /* Bariol_Bold_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Bold_Italic.otf; sourceTree = "<group>"; };
 		7A1DBEB31EED802600790B54 /* Bariol_Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Bold.otf; sourceTree = "<group>"; };
@@ -235,7 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				7A111ED81EF815840042ED78 /* CountryData.swift */,
-				7A111EDA1EF815950042ED78 /* CityData.swift */,
+				7A111EE41EF86B330042ED78 /* CityData.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -555,11 +555,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A111EE51EF86B330042ED78 /* CityData.swift in Sources */,
 				7A111EE11EF816F60042ED78 /* CurrencyCell.swift in Sources */,
 				7A111ED11EF8112A0042ED78 /* Constants.swift in Sources */,
 				7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */,
 				7A111ED91EF815840042ED78 /* CountryData.swift in Sources */,
-				7A111EDB1EF815950042ED78 /* CityData.swift in Sources */,
 				083AF84F1E9F9A3F00AE5445 /* MainVC.swift in Sources */,
 				7A111ED31EF8114B0042ED78 /* DataService.swift in Sources */,
 				7A111EDD1EF8165F0042ED78 /* DestCurrVC.swift in Sources */,

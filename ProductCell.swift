@@ -29,7 +29,7 @@ class ProductCell: UITableViewCell {
     }
 
 
-    func configureProductCell(productRange: String, baseCurr: String, destCurr:String, destCurrSymbol:String, baseCurrSymbol:String, indexPath: Int, baseCityProdList:Dictionary<String, AnyObject>, destCityProdList:Dictionary<String, AnyObject>){
+    func configureProductCell(productRange: String, baseCurr: String, destCurr:String, destCurrSymbol:String, baseCurrSymbol:String, indexPath: Int, baseCityProdList:Dictionary<String, AnyObject>, destCityProdList:Dictionary<String, AnyObject>,baseCountryFlag:String, destCountryFlag:String){
         
         currentRates.downloadExchangeRates {
             let baseProdObj = Array(baseCityProdList)[indexPath]
@@ -40,7 +40,56 @@ class ProductCell: UITableViewCell {
             
             if baseProdObj.key == destProdObj.key {
                 
-                self.productNameLbl.text = baseProdObj.key
+//                self.productNameLbl.text = baseProdObj.key
+                self.baseCountryIcon.image = UIImage(named: baseCountryFlag)
+                self.destCountryIcon.image = UIImage(named: destCountryFlag)
+                
+                switch (baseProdObj.key)
+                {
+                case "ImpBeer":
+                    self.productNameLbl.text = "Imported Beer"
+                    self.productIcon.image = UIImage(named:"ImpBeer")
+                    
+                case "DomBeer":
+                    self.productNameLbl.text = "Domestic Beer"
+                    self.productIcon.image = UIImage(named:"DomBeer")
+                    
+                case "WineBottle":
+                    self.productNameLbl.text = "Wine Bottle"
+                    self.productIcon.image = UIImage(named:"WineBottle")
+                    
+                case "Coke":
+                    self.productNameLbl.text = "Can (340ml)"
+                    self.productIcon.image = UIImage(named:"Coke")
+                    
+                case "MovieTicket":
+                    self.productNameLbl.text = "Movie Ticket"
+                    self.productIcon.image = UIImage(named:"MovieTicket")
+                    
+                case "PackSmokes":
+                    self.productNameLbl.text = "Cigarettes (20)"
+                    self.productIcon.image = UIImage(named:"PackSmokes")
+                    
+                case "McMeal":
+                    self.productNameLbl.text = "Big Mac"
+                    self.productIcon.image = UIImage(named:"McMeal")
+                    
+                case "WaterBottle":
+                    self.productNameLbl.text = "Water Bottle"
+                    self.productIcon.image = UIImage(named:"WaterBottle")
+                    
+                case "Meal":
+                    self.productNameLbl.text = "Meal"
+                    self.productIcon.image = UIImage(named:"Meal")
+                    
+                case "OneWayTicket":
+                    self.productNameLbl.text = "Travel Ticket"
+                    self.productIcon.image = UIImage(named:"OneWayTicket")
+                    
+                default:
+                    print("Integer out of range")
+                }
+                
                 
                 self.baseProdPrice.text = "\(baseCurrSymbol)\(basePriceString)"
                 self.destProdPrice.text = "\(destCurrSymbol)\(destPriceString)"
@@ -56,8 +105,10 @@ class ProductCell: UITableViewCell {
                 
                 if difPrice >= basePriceText {
                     self.expensiveLbl.text = "More Expensive"
+                    self.expensiveIcon.image = UIImage(named:"moreExpensive_arrow")
                 } else {
                     self.expensiveLbl.text = "Less Expensive"
+                    self.expensiveIcon.image = UIImage(named:"lessExpensive_arrow")
                 }
             }
             

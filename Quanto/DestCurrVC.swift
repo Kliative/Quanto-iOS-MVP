@@ -24,9 +24,7 @@ class DestCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var searchBar: UISearchBar!
     var isSearching = false
     
-    
     var filterData = [String]()
-    
     
     var sortedCurrency:[String] = []
     
@@ -55,7 +53,8 @@ class DestCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                                                           currencyName: countryDict["ISO4217_currency_name"] as! String,
                                                           currencySymbol: countryDict["ISO4217_currency_symbol"] as! String,
                                                           capitalName:countryDict["Capital"] as! String,
-                                                          cities:countryDict["cities"] as! [String])
+                                                          cities:countryDict["cities"] as! [String],
+                                                          countryCode: countryDict["ISO3166_1_Alpha_2"] as! String)
                         
                         self.countryData.append(countryDataSnap)
                         
@@ -69,7 +68,6 @@ class DestCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             self.tableView.reloadData()
         })
         
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,7 +78,7 @@ class DestCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
             
             
             //sends throught country Name to cells, create better cellconfig and add more data
-            cell.configureCurrencyCell(currencyName: countryData.countryName)
+            cell.configureCurrencyCell(countryName: countryData.countryName, countryCode: countryData.countryCode, currencyName: countryData.currencyName)
             
             return cell
             

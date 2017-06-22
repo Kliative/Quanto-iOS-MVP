@@ -15,6 +15,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var baseCityData = [CityData]()
     var baseCapitalData = [CityData]()
     
+    @IBOutlet weak var captionLbl: UILabel!
     var productList:Int!
     var destProdListDict: Dictionary<String, AnyObject>!
     var baseProdListDict: Dictionary<String, AnyObject>!
@@ -33,6 +34,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     @IBOutlet weak var oneWayTicketLbl: UILabel!
     @IBOutlet weak var mcmealDestLbl: UILabel!
 
+    @IBOutlet weak var baseCountryFlag: UIImageView!
+    @IBOutlet weak var destCountryFlag: UIImageView!
+    
+    var baseCountryFlagName:String!
+    var destCountryFlagName:String!
+    
+    
     @IBOutlet weak var calculationLbl: UILabel!
     @IBOutlet weak var baseCurrencyLbl: UILabel!
     @IBOutlet weak var destinationCurrencyLbl: UILabel!
@@ -109,13 +117,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         calculaterView.center.y = self.view.frame.height + 100
         
-        self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.dcView.frame.width
-        self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
+//        self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.dcView.frame.width
+//        self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
         
         UIView.animate(withDuration: 1) {
             self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
-            self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
-            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
+//            self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
+//            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
         }
         
         currentRates = CurrentExchange()
@@ -146,8 +154,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         if self.destCurrSel == nil || self.baseCurrSel == nil {
             self.destCurrSel = "ZAR"
             self.baseCurrSel = "GBP"
-            self.baseCountryBtn.setTitle("United Kingdom [GBP]", for: .normal)
-            self.destCountryBtn.setTitle("South Africa [ZAR]", for: .normal)
+            self.baseCountryBtn.setTitle("GBP", for: .normal)
+            self.destCountryBtn.setTitle("ZAR", for: .normal)
             
         }
 
@@ -155,16 +163,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func userDidEnterDestData(data: CountryData) {
         self.destCountryKey = data.countryName
-        self.destCountryBtn.setTitle("\(data.countryName) [\(data.currencyCode)]", for: .normal)
+        self.destCountryBtn.setTitle("\(data.currencyCode)", for: .normal)
         self.destCurrSel = data.currencyCode
         self.destCurrSymbol = data.currencySymbol
         self.destCities = data.cities
         self.destCapital = data.capitalName
         self.getDestCitiesProd(countryKey: data.countryName
             , cityKey: data.capitalName, productRange: self.productRangeSel)
-        
+        self.destCountryFlag.image = UIImage(named:data.countryCode)
+        self.destCountryFlagName = data.countryCode
         self.globalProdAmount()
-        print("userDidEnterDestData")
+        UIView.animate(withDuration: 0.5) {
+            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
+        }
+        
         self.destCityTableView.reloadData()
         
         
@@ -172,13 +184,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func userDidEnterBaseData(data: CountryData) {
         self.baseCountryKey = data.countryName
-        self.baseCountryBtn.setTitle("\(data.countryName) [\(data.currencyCode)]", for: .normal)
+        self.baseCountryBtn.setTitle("\(data.currencyCode)", for: .normal)
         self.baseCurrSel = data.currencyCode
         self.baseCities = data.cities
         self.baseCurrSymbol = data.currencySymbol
         self.getBaseCitiesProd(countryKey: data.countryName
             , cityKey: data.capitalName, productRange: self.productRangeSel)
+        self.baseCountryFlag.image = UIImage(named:data.countryCode)
+        self.baseCountryFlagName = data.countryCode
         print("userDidEnterBaseData")
+        
+        UIView.animate(withDuration: 0.5) {
+            self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
+        }
+        
         self.baseCityTableView.reloadData()
     }
 
@@ -189,7 +208,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         switch tableView {
         case productListTableView :
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for:indexPath) as? ProductCell{
-                cell.configureProductCell(productRange:self.productRangeSel, baseCurr:self.baseCurrSel, destCurr: self.destCurrSel, destCurrSymbol: self.destCurrSymbol, baseCurrSymbol: self.baseCurrSymbol, indexPath: indexPath.row, baseCityProdList: self.baseProdListDict, destCityProdList: self.destProdListDict)
+                cell.configureProductCell(productRange:self.productRangeSel, baseCurr:self.baseCurrSel, destCurr: self.destCurrSel, destCurrSymbol: self.destCurrSymbol, baseCurrSymbol: self.baseCurrSymbol, indexPath: indexPath.row, baseCityProdList: self.baseProdListDict, destCityProdList: self.destProdListDict, baseCountryFlag: self.baseCountryFlagName, destCountryFlag: self.destCountryFlagName)
                 
                 return cell
             } else {
@@ -296,9 +315,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         case baseCityTableView:
             self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
             
+            self.baseCityBtn.setTitle(self.baseCities[self.cityIndexRow], for: .normal)
             self.isBaseFull = true
             
             if self.isDestFull && self.isBaseFull {
+                
+                self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
+                self.globalProdAmount()
                 self.productListTableView.reloadData()
             }
             UIView.animate(withDuration: 0.5) {
@@ -306,10 +329,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             }
         case destCityTableView:
             self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
-            
+            self.destCityBtn.setTitle(self.destCities[self.cityIndexRow], for: .normal)
             self.isDestFull = true
             
             if self.isDestFull && self.isBaseFull {
+                self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
+                self.globalProdAmount()
                 self.productListTableView.reloadData()
             }
             UIView.animate(withDuration: 0.5) {
@@ -345,7 +370,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         if self.destCityData.count > 0 && self.baseCityData.count > 0 {
             
-            
             if self.cityIndexRow != nil {
                 
                 if sender.tag == 10{
@@ -354,6 +378,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
+                    self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                     self.productListTableView.reloadData()
                     
                 } else if sender.tag == 11 {
@@ -361,12 +386,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
+                    captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                     self.productListTableView.reloadData()
                 } else {
                     self.productRangeSel = "high"
                     self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
+                    captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                     self.productListTableView.reloadData()
                     
                 }
@@ -576,7 +603,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     func productAmount(convAm: Float){
         print("--productAmount")
         if self.cityIndexRow != nil {
-            print("--cityIndexRow")
+            
             for i in (0..<self.destCityData.count){
                 if (destCityData[i].cityName == self.destCities[self.cityIndexRow])
                 {
@@ -595,7 +622,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             }
         } else {
             print("--destCapital")
-            print(self.destCityData.count)
+            
             for i in (0..<self.destCityData.count){
                 if (destCityData[i].cityName == self.destCapital)
                 {
@@ -665,7 +692,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         }
         
         self.enableBtns()
-        
+        if self.isDestFull && self.isBaseFull {
+        self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
+        }
         //Does Converstion
         if self.destCurrSel != nil && self.baseCurrSel != nil && result != "" {
             
@@ -736,6 +765,33 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         if segue.identifier == "BaseCounrtySelSegue" {
             let baseVC: BaseCurrVC = segue.destination as! BaseCurrVC
             baseVC.delegate = self
+        }
+    }
+    
+    func captionLabel(destCurrencySymbol:String,range:String,baseCountry:String,destCountry:String){
+        let stringResult = Float(result)!
+        let priceToConver = Float(round(stringResult))
+        let convertedAmount = Float(self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver))!
+        
+        var prodRange = ""
+        
+        switch (range)
+        {
+        case "norm":
+            prodRange = "Chillin"
+            
+        case "low":
+            prodRange = "Surviving"
+            
+        case "high":
+            prodRange = "Ballin"
+            
+        default:
+            print("Integer out of range")
+        }
+        
+        if self.isDestFull && self.isBaseFull {
+            self.captionLbl.text = "\(destCurrencySymbol) \(convertedAmount) \(prodRange) in \(destCountry) vs \(baseCountry)"
         }
     }
 

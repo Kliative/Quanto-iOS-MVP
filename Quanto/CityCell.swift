@@ -19,6 +19,7 @@ class CityCell: UITableViewCell {
     
     func configureCityCell(cityName:String){
         self.cityLbl.text = cityName
+        
     }
 
 }

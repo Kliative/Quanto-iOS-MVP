@@ -34,8 +34,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     @IBOutlet weak var oneWayTicketLbl: UILabel!
     @IBOutlet weak var mcmealDestLbl: UILabel!
 
-    @IBOutlet weak var baseCountryFlag: UIImageView!
-    @IBOutlet weak var destCountryFlag: UIImageView!
+    @IBOutlet weak var baseCountryLbl: UILabel!
+    @IBOutlet weak var destCountryLbl: UILabel!
     
     var baseCountryFlagName:String!
     var destCountryFlagName:String!
@@ -120,7 +120,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.citiesTvStackV.isHidden = true
         self.prodStackV.isHidden = true
         
-        self.baseCountryBtn.contentHorizontalAlignment = .left
+//        self.baseCountryBtn.contentHorizontalAlignment = .left
         self.destCountryBtn.contentHorizontalAlignment = .left
         
         calculaterView.center.y = self.view.frame.height + 100
@@ -162,8 +162,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         if self.destCurrSel == nil || self.baseCurrSel == nil {
             self.destCurrSel = "ZAR"
             self.baseCurrSel = "GBP"
-            self.baseCountryBtn.setTitle("GBP", for: .normal)
-            self.destCountryBtn.setTitle("ZAR", for: .normal)
+            self.baseCountryLbl.text = "GBP"
+            self.destCountryLbl.text = "ZAR"
             
         }
 
@@ -171,14 +171,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func userDidEnterDestData(data: CountryData) {
         self.destCountryKey = data.countryName
-        self.destCountryBtn.setTitle("\(data.currencyCode)", for: .normal)
+        self.destCountryBtn.setBackgroundImage(UIImage(named: data.countryCode), for: .normal)
         self.destCurrSel = data.currencyCode
         self.destCurrSymbol = data.currencySymbol
         self.destCities = data.cities
         self.destCapital = data.capitalName
         self.getDestCitiesProd(countryKey: data.countryName
             , cityKey: data.capitalName, productRange: self.productRangeSel)
-        self.destCountryFlag.image = UIImage(named:data.countryCode)
+        self.destCountryLbl.text = data.currencyCode
         self.destCountryFlagName = data.countryCode
         self.globalProdAmount()
         UIView.animate(withDuration: 0.5) {
@@ -199,15 +199,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func userDidEnterBaseData(data: CountryData) {
         self.baseCountryKey = data.countryName
-        self.baseCountryBtn.setTitle("\(data.currencyCode)", for: .normal)
+        self.baseCountryBtn.setBackgroundImage(UIImage(named: data.countryCode), for: .normal)
         self.baseCurrSel = data.currencyCode
         self.baseCities = data.cities
         self.baseCurrSymbol = data.currencySymbol
         self.getBaseCitiesProd(countryKey: data.countryName
             , cityKey: data.capitalName, productRange: self.productRangeSel)
-        self.baseCountryFlag.image = UIImage(named:data.countryCode)
+        self.baseCountryLbl.text = data.currencyCode
         self.baseCountryFlagName = data.countryCode
-        print("userDidEnterBaseData")
         
         UIView.animate(withDuration: 0.5) {
             self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
@@ -332,7 +331,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         switch tableView
         {
         case productListTableView:
-            print("Hello")
+            UIView.animate(withDuration: 0.5) {
+                self.calculaterView.center.y = self.view.frame.height + 200
+            }
             
         case baseCityTableView:
             self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
@@ -564,11 +565,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 //Does Converstion
                 if self.destCurrSel != nil && self.baseCurrSel != nil && result != "" {
                     let stringResult = Float(result)!
-                    let priceToConver = Float(round(stringResult))
+                    let priceToConver = Float(stringResult)
                     
-                    let convertedAmount = Float(self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver))!
+                    let convertedAmount = Int(self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver))!
                     
-                    destinationCurrencyLbl.text = "\(Float(round(convertedAmount)))"
+                    destinationCurrencyLbl.text = "\(convertedAmount)"
                 }
                 
             } else {
@@ -817,7 +818,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         if self.isDestFull && self.isBaseFull {
             
             if convertedAmount > 0 {
-                    self.captionLbl.text = "\(destCurrencySymbol) \(Float(convertedAmount)) \(prodRange) in \(destCountry) vs \(baseCountry)"
+                    self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(destCountry) vs \(baseCountry)"
             } else{
                 self.captionLbl.text = "Convert some money to see what you can afford"
             }

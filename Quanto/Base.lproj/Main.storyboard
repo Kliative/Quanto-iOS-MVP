@@ -175,7 +175,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ckk-hm-HWX" id="QtK-FO-kzD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i4x-47-4Ww">
@@ -636,9 +636,9 @@
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AeK-OH-nsf">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
-                                        <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.43921568630000002" green="0.1333333333" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select County and City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-W1-5BC">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select countries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-W1-5BC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
                                         <color key="backgroundColor" red="0.43921568630000002" green="0.1333333333" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -992,6 +992,8 @@
                         <outlet property="calculaterView" destination="nfv-BF-FWT" id="Dr4-34-g1N"/>
                         <outlet property="calculationLbl" destination="CkK-NU-Oxh" id="mFO-fO-tOe"/>
                         <outlet property="captionLbl" destination="BIC-W1-5BC" id="rAx-B8-QRI"/>
+                        <outlet property="citiesTvStackV" destination="IGk-hB-9zb" id="YyC-9h-AJh"/>
+                        <outlet property="cityVsCityStackV" destination="C27-8K-fDG" id="PbK-2Z-Izb"/>
                         <outlet property="cokeDestLbl" destination="iB1-GC-eHR" id="xil-hd-T1y"/>
                         <outlet property="dcView" destination="P7g-jT-Ud3" id="jag-qK-KUv"/>
                         <outlet property="decimalBtn" destination="D27-Wu-rcY" id="dnN-RS-Jlt"/>
@@ -1006,6 +1008,8 @@
                         <outlet property="mealDestLbl" destination="yZo-nK-IBS" id="Qtl-05-U44"/>
                         <outlet property="multiplyBtn" destination="eOV-Vn-tSV" id="wtc-Wl-0D9"/>
                         <outlet property="oneWayTicketLbl" destination="jZE-LC-88f" id="cvO-7G-hXc"/>
+                        <outlet property="prodImagBG" destination="AeK-OH-nsf" id="rup-nL-cCD"/>
+                        <outlet property="prodStackV" destination="Z8q-Eo-d4b" id="pEK-nn-wXl"/>
                         <outlet property="productListTableView" destination="0V3-HL-Biq" id="iCh-5J-W9b"/>
                         <outlet property="subtractBtn" destination="1BI-eN-Qrq" id="sio-13-XWS"/>
                     </connections>
@@ -1072,7 +1076,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v8W-ih-8Nl" id="tbc-60-uFM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZA" translatesAutoresizingMaskIntoConstraints="NO" id="ZwX-vc-ts8">
@@ -1194,7 +1198,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3U-kb-JcF" id="ih4-un-ZHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZA" translatesAutoresizingMaskIntoConstraints="NO" id="YrB-s1-N5I">

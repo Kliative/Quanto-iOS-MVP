@@ -66,6 +66,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var decimalBtn: UIButton!
     
+    @IBOutlet weak var cityVsCityStackV: UIStackView!
+    @IBOutlet weak var citiesTvStackV: UIStackView!
+    
+    @IBOutlet weak var prodStackV: UIStackView!
+    @IBOutlet weak var prodImagBG: UIImageView!
+    
     var destCapital:String!
     var productRangeSel: String!
     var cityIndexRow: Int!
@@ -110,7 +116,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.destCityTableView.delegate = self
         self.destCityTableView.dataSource = self
         
-
+        self.cityVsCityStackV.isHidden = true
+        self.citiesTvStackV.isHidden = true
+        self.prodStackV.isHidden = true
         
         self.baseCountryBtn.contentHorizontalAlignment = .left
         self.destCountryBtn.contentHorizontalAlignment = .left
@@ -120,7 +128,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
 //        self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.dcView.frame.width
 //        self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
         
-        UIView.animate(withDuration: 1) {
+        UIView.animate(withDuration: 0.7) {
             self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
 //            self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
 //            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
@@ -176,6 +184,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         UIView.animate(withDuration: 0.5) {
             self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
         }
+        if self.baseCities.count > 0 && self.destCities.count > 0 {
+            self.cityVsCityStackV.isHidden = false
+            self.citiesTvStackV.isHidden = false
+            self.prodStackV.isHidden = false
+            self.prodImagBG.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
+            self.captionLbl.text = "Now select cities"
+        }
         
         self.destCityTableView.reloadData()
         
@@ -196,6 +211,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         UIView.animate(withDuration: 0.5) {
             self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
+        }
+        if self.baseCities.count > 0 && self.destCities.count > 0 {
+            self.cityVsCityStackV.isHidden = false
+            self.citiesTvStackV.isHidden = false
+            self.prodStackV.isHidden = false
+            self.prodImagBG.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
+            self.captionLbl.text = "Now Select the Cities"
         }
         
         self.baseCityTableView.reloadData()
@@ -473,6 +495,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         runningNumber = ""
         displayRunningNumber = ""
         result = "0"
+        self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
     }
     
     
@@ -751,6 +774,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             displayRunningNumber = ""
             result = "0"
             
+            
         }
     }
     func reCalc() {
@@ -791,7 +815,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         }
         
         if self.isDestFull && self.isBaseFull {
-            self.captionLbl.text = "\(destCurrencySymbol) \(convertedAmount) \(prodRange) in \(destCountry) vs \(baseCountry)"
+            
+            if convertedAmount > 0 {
+                    self.captionLbl.text = "\(destCurrencySymbol) \(Float(convertedAmount)) \(prodRange) in \(destCountry) vs \(baseCountry)"
+            } else{
+                self.captionLbl.text = "Convert some money to see what you can afford"
+            }
+            
+            
+            
         }
     }
 

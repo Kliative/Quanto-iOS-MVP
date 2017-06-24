@@ -55,7 +55,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="bNu-Ia-PU9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="15"/>
-                                                <state key="normal" backgroundImage="ZA">
+                                                <state key="normal" backgroundImage="emptyFlag_F">
                                                     <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -86,7 +86,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="dT7-gq-gbF"/>
                                                     <constraint firstAttribute="width" constant="44" id="h5B-oS-ZhU"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="GB">
+                                                <state key="normal" backgroundImage="emptyFlag_F">
                                                     <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -312,8 +312,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-BF-FWT">
-                                <rect key="frame" x="1000" y="432" width="375" height="235"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-BF-FWT">
+                                <rect key="frame" x="0.0" y="432" width="375" height="235"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYj-RG-ppR">
                                         <rect key="frame" x="0.0" y="-1" width="375" height="59"/>
@@ -384,6 +384,8 @@
                                                 <state key="normal" title="€€€">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" title="Ballin"/>
+                                                <state key="highlighted" title="Ballin"/>
                                                 <connections>
                                                     <action selector="productRangePressedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5dW-59-TqK"/>
                                                 </connections>
@@ -459,6 +461,8 @@
                                                 <state key="normal" title="€">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" title="Surviving"/>
+                                                <state key="highlighted" title="Surviving"/>
                                                 <connections>
                                                     <action selector="productRangePressedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2DV-AV-sEm"/>
                                                 </connections>
@@ -601,7 +605,7 @@
                                             </button>
                                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sjx-pf-QQv">
                                                 <rect key="frame" x="300" y="0.0" width="75" height="59"/>
-                                                <color key="backgroundColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="sjx-pf-QQv" secondAttribute="height" multiplier="75:59" id="yoQ-XG-NhD"/>
                                                 </constraints>
@@ -609,6 +613,8 @@
                                                 <state key="normal" title="€€">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <state key="selected" title="Chillin"/>
+                                                <state key="highlighted" title="Chillin"/>
                                                 <connections>
                                                     <action selector="productRangePressedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ooH-K8-HBK"/>
                                                 </connections>
@@ -1026,6 +1032,7 @@
                     </view>
                     <connections>
                         <outlet property="addBtn" destination="XUd-gI-V16" id="alZ-PN-0Q3"/>
+                        <outlet property="ballinBtn" destination="DTQ-FU-OqZ" id="N4f-Uf-j39"/>
                         <outlet property="baseCityBtn" destination="0Bp-F8-onr" id="6Gc-wq-0hV"/>
                         <outlet property="baseCityTableView" destination="7Zy-GW-EXM" id="Rpx-wa-oBg"/>
                         <outlet property="baseCountryBtn" destination="Us5-mL-hau" id="8cS-Gb-umq"/>
@@ -1035,6 +1042,7 @@
                         <outlet property="calculaterView" destination="nfv-BF-FWT" id="Dr4-34-g1N"/>
                         <outlet property="calculationLbl" destination="CkK-NU-Oxh" id="mFO-fO-tOe"/>
                         <outlet property="captionLbl" destination="BIC-W1-5BC" id="rAx-B8-QRI"/>
+                        <outlet property="chillinBtn" destination="sjx-pf-QQv" id="hEy-hb-wDG"/>
                         <outlet property="citiesTvStackV" destination="IGk-hB-9zb" id="YyC-9h-AJh"/>
                         <outlet property="cityVsCityStackV" destination="C27-8K-fDG" id="PbK-2Z-Izb"/>
                         <outlet property="cokeDestLbl" destination="iB1-GC-eHR" id="xil-hd-T1y"/>
@@ -1055,6 +1063,7 @@
                         <outlet property="prodStackV" destination="Z8q-Eo-d4b" id="pEK-nn-wXl"/>
                         <outlet property="productListTableView" destination="0V3-HL-Biq" id="iCh-5J-W9b"/>
                         <outlet property="subtractBtn" destination="1BI-eN-Qrq" id="sio-13-XWS"/>
+                        <outlet property="survivingBtn" destination="UEr-jd-NAx" id="0Gl-q2-ghU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1329,6 +1338,7 @@
         <image name="baseBtn-s" width="137" height="29"/>
         <image name="destBtn-d" width="137" height="29"/>
         <image name="destBtn-s" width="137" height="29"/>
+        <image name="emptyFlag_F" width="16" height="16"/>
         <image name="logo_icon" width="49" height="49"/>
         <image name="moreExpensive_arrow" width="15" height="8"/>
     </resources>

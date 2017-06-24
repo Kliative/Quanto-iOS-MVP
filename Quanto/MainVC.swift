@@ -72,6 +72,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     @IBOutlet weak var prodStackV: UIStackView!
     @IBOutlet weak var prodImagBG: UIImageView!
     
+    @IBOutlet weak var survivingBtn: UIButton!
+    @IBOutlet weak var chillinBtn: UIButton!
+    @IBOutlet weak var ballinBtn: UIButton!
+    
     var destCapital:String!
     var productRangeSel: String!
     var cityIndexRow: Int!
@@ -143,14 +147,12 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         calculationLbl.text = "0"
         baseCurrencyLbl.text = "0"
         destinationCurrencyLbl.text = "0"
-        destinationCurrencyLbl.textColor = UIColor(red:0/255, green:0/255, blue:0/255, alpha:0.2)
         
         self.cokeDestLbl.text = "0 x"
         self.domBeerDestLbl.text = "0 x"
         self.oneWayTicketLbl.text = "0 x"
         self.mealDestLbl.text = "0 x"
         self.mcmealDestLbl.text = "0 x"
-        
         
         self.productRangeSel = "norm"
         
@@ -161,10 +163,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         if self.destCurrSel == nil || self.baseCurrSel == nil {
             self.destCurrSel = "ZAR"
-            self.baseCurrSel = "GBP"
-            self.baseCountryLbl.text = "GBP"
-            self.destCountryLbl.text = "ZAR"
-            
+            self.baseCurrSel = "ZAR"
+            self.baseCountryLbl.text = "Home"
+            self.destCountryLbl.text = "Destination"   
         }
 
     }
@@ -397,7 +398,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 
                 if sender.tag == 10{
                     self.productRangeSel = "low"
-                    
+                    self.survivingBtn.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
+                    self.chillinBtn.backgroundColor = UIColor(red:155/255,green:155/255,blue:155/255,alpha:1.0)
+                    self.ballinBtn.backgroundColor = UIColor(red:155/255,green:155/255,blue:155/255,alpha:1.0)
                     self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
@@ -406,6 +409,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     
                 } else if sender.tag == 11 {
                     self.productRangeSel = "norm"
+                    self.chillinBtn.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
+                    self.ballinBtn.backgroundColor = UIColor(red:155/255,green:155/255,blue:155/255,alpha:1.0)
+                    self.survivingBtn.backgroundColor = UIColor(red:155/255,green:155/255,blue:155/255,alpha:1.0)
                     self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
@@ -413,6 +419,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.productListTableView.reloadData()
                 } else {
                     self.productRangeSel = "high"
+                    self.ballinBtn.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
+                    self.chillinBtn.backgroundColor = UIColor(red:155/255,green:155/255,blue:155/255,alpha:1.0)
+                    self.survivingBtn.backgroundColor = UIColor(red:155/255,green:155/255,blue:155/255,alpha:1.0)
                     self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
@@ -496,7 +505,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         runningNumber = ""
         displayRunningNumber = ""
         result = "0"
-        self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
+        
+        if self.baseCities.count > 0 && self.destCities.count > 0 {
+                self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
+        }
+        
     }
     
     
@@ -774,7 +787,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             runningNumber = ""
             displayRunningNumber = ""
             result = "0"
-            
+            self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
             
         }
     }

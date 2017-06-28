@@ -55,7 +55,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="bNu-Ia-PU9"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="15"/>
-                                                <state key="normal" backgroundImage="emptyFlag_F">
+                                                <state key="normal" backgroundImage="emptyFlag">
                                                     <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -86,7 +86,7 @@
                                                     <constraint firstAttribute="height" constant="30" id="dT7-gq-gbF"/>
                                                     <constraint firstAttribute="width" constant="44" id="h5B-oS-ZhU"/>
                                                 </constraints>
-                                                <state key="normal" backgroundImage="emptyFlag_F">
+                                                <state key="normal" backgroundImage="emptyFlag">
                                                     <color key="titleColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -180,7 +180,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ckk-hm-HWX" id="QtK-FO-kzD">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="89"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i4x-47-4Ww">
@@ -1128,7 +1128,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v8W-ih-8Nl" id="tbc-60-uFM">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZA" translatesAutoresizingMaskIntoConstraints="NO" id="ZwX-vc-ts8">
@@ -1250,7 +1250,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O3U-kb-JcF" id="ih4-un-ZHt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZA" translatesAutoresizingMaskIntoConstraints="NO" id="YrB-s1-N5I">
@@ -1338,7 +1338,7 @@
         <image name="baseBtn-s" width="137" height="29"/>
         <image name="destBtn-d" width="137" height="29"/>
         <image name="destBtn-s" width="137" height="29"/>
-        <image name="emptyFlag_F" width="16" height="16"/>
+        <image name="emptyFlag" width="28" height="20"/>
         <image name="logo_icon" width="49" height="49"/>
         <image name="moreExpensive_arrow" width="15" height="8"/>
     </resources>

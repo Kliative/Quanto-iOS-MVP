@@ -126,17 +126,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
 //        self.baseCountryBtn.contentHorizontalAlignment = .left
         self.destCountryBtn.contentHorizontalAlignment = .left
-        
-        calculaterView.center.y = self.view.frame.height + 100
-        
-//        self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.dcView.frame.width
-//        self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
-        
-        UIView.animate(withDuration: 0.7) {
-            self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
-//            self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
-//            self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
-        }
+        self.calculaterView.isHidden = true
         
         currentRates = CurrentExchange()
         currentRates.downloadExchangeRates {}
@@ -332,9 +322,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         switch tableView
         {
         case productListTableView:
-            UIView.animate(withDuration: 0.5) {
-                self.calculaterView.center.y = self.view.frame.height + 200
-            }
+                print("1")
             
         case baseCityTableView:
             self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
@@ -346,11 +334,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 
                 self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                 self.globalProdAmount()
-                self.productListTableView.reloadData()
+                self.animateTable()
+                UIView.animate(withDuration: 0.5) {
+                    self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
+                    self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.bcView.frame.width
+                }
             }
-            UIView.animate(withDuration: 0.5) {
-                self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.bcView.frame.width
-            }
+            
         case destCityTableView:
             self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
             self.destCityBtn.setTitle(self.destCities[self.cityIndexRow], for: .normal)
@@ -359,25 +349,27 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             if self.isDestFull && self.isBaseFull {
                 self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                 self.globalProdAmount()
-                self.productListTableView.reloadData()
+                self.animateTable()
+                UIView.animate(withDuration: 0.5) {
+                    self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
+                    self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.bcView.frame.width
+                }
             }
-            UIView.animate(withDuration: 0.5) {
-               self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
-            }
+            
         default:
             break
         }
     }
     
     @IBAction func closeCalculatorViewPressed(_ sender: Any) {
-        UIView.animate(withDuration: 0.5) {
-            self.calculaterView.center.y = self.view.frame.height + 200
-        }
+        
+            self.calculaterView.isHidden = true
+        
     }
     @IBAction func showCalculatorViewPressed(_ sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.5) {
-            self.calculaterView.center.y = self.view.frame.height - self.calculaterView.frame.height/2
-        }
+        
+            self.calculaterView.isHidden = false
+        
     }
     @IBAction func baseCityBtnPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
@@ -405,7 +397,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
                     self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
-                    self.productListTableView.reloadData()
+                    self.animateTable()
                     
                 } else if sender.tag == 11 {
                     self.productRangeSel = "norm"
@@ -416,7 +408,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
                     captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
-                    self.productListTableView.reloadData()
+                    self.animateTable()
                 } else {
                     self.productRangeSel = "high"
                     self.ballinBtn.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
@@ -426,7 +418,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
                     self.globalProdAmount()
                     captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
-                    self.productListTableView.reloadData()
+                    self.animateTable() 
                     
                 }
                 
@@ -841,6 +833,26 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         }
     }
 
-
+    func animateTable() {
+        self.productListTableView.reloadData()
+        
+        let cells = productListTableView.visibleCells
+        
+        let tableViewHeight = productListTableView.bounds.size.height
+        
+        for cell in cells {
+            cell.transform = CGAffineTransform(translationX:0,y: tableViewHeight)
+        }
+        
+        var delayCounter = 0
+        
+        for cell in cells {
+            UIView.animate(withDuration: 1.75, delay: Double(delayCounter) * 0.05, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .curveEaseInOut, animations: { 
+                cell.transform = CGAffineTransform.identity
+            }, completion: nil)
+            delayCounter += 1
+        }
+    }
+    
 }
 

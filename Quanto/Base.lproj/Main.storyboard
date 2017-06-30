@@ -1037,6 +1037,7 @@
                         <outlet property="baseCityTableView" destination="7Zy-GW-EXM" id="Rpx-wa-oBg"/>
                         <outlet property="baseCountryBtn" destination="Us5-mL-hau" id="8cS-Gb-umq"/>
                         <outlet property="baseCountryLbl" destination="jsd-4Y-8cZ" id="Dnc-6P-Uq4"/>
+                        <outlet property="baseCountrySelSV" destination="OGh-cR-ceu" id="fBj-Nx-WgC"/>
                         <outlet property="baseCurrencyLbl" destination="Qj2-W0-2IR" id="R4O-RT-WZs"/>
                         <outlet property="bcView" destination="9HB-Xu-24i" id="F8H-98-G1K"/>
                         <outlet property="calculaterView" destination="nfv-BF-FWT" id="Dr4-34-g1N"/>
@@ -1052,6 +1053,7 @@
                         <outlet property="destCityTableView" destination="XZ4-8v-NlR" id="Z0r-ti-Mds"/>
                         <outlet property="destCountryBtn" destination="baB-fn-hEn" id="TjX-31-Xt1"/>
                         <outlet property="destCountryLbl" destination="31g-sP-qWS" id="4xp-mN-Lzh"/>
+                        <outlet property="destCountrySelSV" destination="ayk-r3-1xf" id="JdK-V9-ZGu"/>
                         <outlet property="destinationCurrencyLbl" destination="mM4-zf-3Qp" id="Hfo-oE-4PX"/>
                         <outlet property="divideBtn" destination="DtN-Dc-Ksr" id="Zhw-A8-zjM"/>
                         <outlet property="domBeerDestLbl" destination="CDv-tv-i2y" id="bfL-O8-sZR"/>
@@ -1254,17 +1256,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ZA" translatesAutoresizingMaskIntoConstraints="NO" id="YrB-s1-N5I">
-                                                    <rect key="frame" x="8" y="14" width="44" height="30"/>
+                                                    <rect key="frame" x="8" y="13" width="44" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="5j7-ux-p7b"/>
                                                         <constraint firstAttribute="width" constant="44" id="ZmY-1e-cU5"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qbB-QU-NPs">
-                                                    <rect key="frame" x="60" y="14" width="307" height="33"/>
+                                                    <rect key="frame" x="60" y="14" width="307" height="29"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zsG-A7-hRc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="307" height="21"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="307" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="zsG-A7-hRc" secondAttribute="height" multiplier="307:21" id="zci-fT-Tni"/>
                                                             </constraints>
@@ -1273,7 +1275,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVh-np-ddI">
-                                                            <rect key="frame" x="0.0" y="21" width="307" height="12"/>
+                                                            <rect key="frame" x="0.0" y="17" width="307" height="12"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="XVh-np-ddI" secondAttribute="height" multiplier="307:12" id="apN-vS-aBf"/>
                                                             </constraints>

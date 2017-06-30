@@ -27,6 +27,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var baseCities:[String] = []
     var destCities:[String] = []
     
+    var baseBtnTime:Timer!
+    var destBtnTime:Timer!
     
     @IBOutlet weak var cokeDestLbl: UILabel!
     @IBOutlet weak var domBeerDestLbl: UILabel!
@@ -65,6 +67,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     @IBOutlet weak var multiplyBtn: UIButton!
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var decimalBtn: UIButton!
+    
+    
+    
+    @IBOutlet weak var destCountrySelSV: UIStackView!
+    @IBOutlet weak var baseCountrySelSV: UIStackView!
     
     @IBOutlet weak var cityVsCityStackV: UIStackView!
     @IBOutlet weak var citiesTvStackV: UIStackView!
@@ -157,6 +164,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             self.baseCountryLbl.text = "Home"
             self.destCountryLbl.text = "Destination"   
         }
+        
+        self.baseBtnTime = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(MainVC.addBasePulse), userInfo: nil, repeats: true)
 
     }
     
@@ -185,10 +194,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         self.destCityTableView.reloadData()
         
-        
+        self.destBtnTime.invalidate()
     }
     
     func userDidEnterBaseData(data: CountryData) {
+        //Animation
+        self.baseBtnTime.invalidate()
+        self.destBtnTime = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(MainVC.addDestPulse), userInfo: nil, repeats: true)
+        
+
+
         self.baseCountryKey = data.countryName
         self.baseCountryBtn.setBackgroundImage(UIImage(named: data.countryCode), for: .normal)
         self.baseCurrSel = data.currencyCode
@@ -852,6 +867,25 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             }, completion: nil)
             delayCounter += 1
         }
+    }
+    
+    // Animations for Buttons
+    // They dont have center positions so had to hack a solution
+    
+    func addBasePulse(){
+        let position = CGPoint(x: baseCountrySelSV.center.x - (baseCountryBtn.frame.width - 2.5), y: baseCountrySelSV.center.y)
+        let pulse = CountryButtonPulse(numberOfPulses:1, radius:50, position: position)
+        pulse.animationDuration = 0.6
+        pulse.backgroundColor = UIColor.darkGray.cgColor
+        self.view.layer.insertSublayer(pulse, below: baseCountryBtn.layer)
+    }
+    
+    func addDestPulse(){
+        let position = CGPoint(x: destCountrySelSV.center.x - (destCountryBtn.frame.width - 2.5), y: destCountrySelSV.center.y)
+        let pulse = CountryButtonPulse(numberOfPulses:1, radius:50, position: position)
+        pulse.animationDuration = 0.6
+        pulse.backgroundColor = UIColor.darkGray.cgColor
+        self.view.layer.insertSublayer(pulse, below: destCountryBtn.layer)
     }
     
 }

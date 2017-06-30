@@ -15,6 +15,7 @@
 		083AF86D1E9F9A3F00AE5445 /* QuantoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083AF86C1E9F9A3F00AE5445 /* QuantoUITests.swift */; };
 		0F561CBC6512B41519904C62 /* Pods_Quanto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7BCD3EB42EC9867B599AD8 /* Pods_Quanto.framework */; };
 		6E93D765098D7FAC7F1EB7D8 /* Pods_QuantoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE14B400F909C11F44D5EC9B /* Pods_QuantoUITests.framework */; };
+		7A0D763D1F0660EB007F5AB4 /* CountryButtonPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D763C1F0660EB007F5AB4 /* CountryButtonPulse.swift */; };
 		7A111ED11EF8112A0042ED78 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111ED01EF8112A0042ED78 /* Constants.swift */; };
 		7A111ED31EF8114B0042ED78 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111ED21EF8114B0042ED78 /* DataService.swift */; };
 		7A111ED51EF811650042ED78 /* ExchangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A111ED41EF811650042ED78 /* ExchangeService.swift */; };
@@ -70,6 +71,7 @@
 		083AF86E1E9F9A3F00AE5445 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		322B8AADB34F9756AAA2CA05 /* Pods-Quanto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quanto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Quanto/Pods-Quanto.debug.xcconfig"; sourceTree = "<group>"; };
 		6859BF1640DC9097F58D812D /* Pods-QuantoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuantoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-QuantoUITests/Pods-QuantoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7A0D763C1F0660EB007F5AB4 /* CountryButtonPulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryButtonPulse.swift; sourceTree = "<group>"; };
 		7A111ED01EF8112A0042ED78 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7A111ED21EF8114B0042ED78 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		7A111ED41EF811650042ED78 /* ExchangeService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeService.swift; sourceTree = "<group>"; };
@@ -210,9 +212,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7A0D763B1F0660C2007F5AB4 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				7A0D763C1F0660EB007F5AB4 /* CountryButtonPulse.swift */,
+			);
+			name = Animations;
+			sourceTree = "<group>";
+		};
 		7A111ECD1EF810A60042ED78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7A0D763B1F0660C2007F5AB4 /* Animations */,
 				7A1DBEB11EED800F00790B54 /* Fonts */,
 				7A1DBE751EEACC7C00790B54 /* ProductCell.swift */,
 				7A1DBEC01EF172BE00790B54 /* CityCell.swift */,
@@ -561,6 +572,7 @@
 				7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */,
 				7A111ED91EF815840042ED78 /* CountryData.swift in Sources */,
 				083AF84F1E9F9A3F00AE5445 /* MainVC.swift in Sources */,
+				7A0D763D1F0660EB007F5AB4 /* CountryButtonPulse.swift in Sources */,
 				7A111ED31EF8114B0042ED78 /* DataService.swift in Sources */,
 				7A111EDD1EF8165F0042ED78 /* DestCurrVC.swift in Sources */,
 				7A111ED51EF811650042ED78 /* ExchangeService.swift in Sources */,

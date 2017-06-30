@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "baseBtn-s.pdf",
+      "filename" : "convertWT.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "convertWT@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "convertWT@3x.png",
       "scale" : "3x"
     }
   ],

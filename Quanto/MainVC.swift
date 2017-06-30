@@ -42,7 +42,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var baseCountryFlagName:String!
     var destCountryFlagName:String!
     
-    
     @IBOutlet weak var calculationLbl: UILabel!
     @IBOutlet weak var baseCurrencyLbl: UILabel!
     @IBOutlet weak var destinationCurrencyLbl: UILabel!
@@ -141,7 +140,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.decimalEnabled = true
         decimalBtn.isUserInteractionEnabled = true
         
-        calculationLbl.text = "0"
+        calculationLbl.text = "Swipe right to clear All"
         baseCurrencyLbl.text = "0"
         destinationCurrencyLbl.text = "0"
         
@@ -155,6 +154,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         self.destProdListDict = [:]
         self.baseProdListDict = [:]
+        
+        
+        self.calculationLbl.alpha = 0
+        self.baseCurrencyLbl.alpha = 0
+        self.destinationCurrencyLbl.alpha = 0
         
         self.disableBtns()
         
@@ -344,7 +348,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             
             self.baseCityBtn.setTitle(self.baseCities[self.cityIndexRow], for: .normal)
             self.isBaseFull = true
-            
+            self.baseCityBtn.backgroundColor = UIColor(red:34/255, green:103/255, blue:188/255, alpha:1)
+
             if self.isDestFull && self.isBaseFull {
                 
                 self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
@@ -353,6 +358,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 UIView.animate(withDuration: 0.5) {
                     self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
                     self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.bcView.frame.width
+                    self.calculationLbl.alpha = 1
+                    self.baseCurrencyLbl.alpha = 1
+                    self.destinationCurrencyLbl.alpha = 1
                 }
             }
             
@@ -360,7 +368,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
             self.destCityBtn.setTitle(self.destCities[self.cityIndexRow], for: .normal)
             self.isDestFull = true
-            
+            self.destCityBtn.backgroundColor = UIColor(red:34/255, green:103/255, blue:188/255, alpha:1)
+
             if self.isDestFull && self.isBaseFull {
                 self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                 self.globalProdAmount()
@@ -368,6 +377,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 UIView.animate(withDuration: 0.5) {
                     self.dcView.center.x = self.view.frame.width + self.dcView.frame.width
                     self.bcView.center.x = (self.view.frame.width - self.view.frame.width) - self.bcView.frame.width
+                    self.calculationLbl.alpha = 1
+                    self.baseCurrencyLbl.alpha = 1
+                    self.destinationCurrencyLbl.alpha = 1
                 }
             }
             
@@ -390,6 +402,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         UIView.animate(withDuration: 0.5) {
             self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
         }
+        self.baseCityBtn.backgroundColor = UIColor(red:8/255, green:32/255, blue:61/255, alpha:1)
     }
     @IBAction func destCityBtnPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {

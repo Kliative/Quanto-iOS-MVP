@@ -35,7 +35,9 @@
 		7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */; };
 		7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBEC01EF172BE00790B54 /* CityCell.swift */; };
 		7A75586F1EF684E500EC2396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A75586D1EF684E500EC2396 /* LaunchScreen.storyboard */; };
-		7AE3F7291EF6879A00384FC9 /* LaunchScreen@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AE3F7281EF6879A00384FC9 /* LaunchScreen@3x.png */; };
+		7AF443221F066A6E006C8958 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF443211F066A6E006C8958 /* OnBoarding.swift */; };
+		7AF443261F066C24006C8958 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF443251F066C24006C8958 /* OnBoardingVC.swift */; };
+		7AF443281F0685B3006C8958 /* LaunchScreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AF443271F0685B3006C8958 /* LaunchScreen@2x.png */; };
 		A3F196E04C9D41A7B9014822 /* Pods_QuantoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAE10EF19B789DC01203CA16 /* Pods_QuantoTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +93,9 @@
 		7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin.otf; sourceTree = "<group>"; };
 		7A1DBEC01EF172BE00790B54 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		7A75586E1EF684E500EC2396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Quanto/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7AE3F7281EF6879A00384FC9 /* LaunchScreen@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreen@3x.png"; sourceTree = "<group>"; };
+		7AF443211F066A6E006C8958 /* OnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
+		7AF443251F066C24006C8958 /* OnBoardingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
+		7AF443271F0685B3006C8958 /* LaunchScreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreen@2x.png"; sourceTree = "<group>"; };
 		9908104F371C4991C5E53344 /* Pods-QuantoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuantoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QuantoTests/Pods-QuantoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BE14B400F909C11F44D5EC9B /* Pods_QuantoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuantoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7D6C895F026A255A0E8E604 /* Pods-Quanto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quanto.release.xcconfig"; path = "Pods/Target Support Files/Pods-Quanto/Pods-Quanto.release.xcconfig"; sourceTree = "<group>"; };
@@ -220,9 +224,18 @@
 			name = Animations;
 			sourceTree = "<group>";
 		};
+		7A0D763E1F0669A4007F5AB4 /* WalkThrough */ = {
+			isa = PBXGroup;
+			children = (
+				7AF443211F066A6E006C8958 /* OnBoarding.swift */,
+			);
+			name = WalkThrough;
+			sourceTree = "<group>";
+		};
 		7A111ECD1EF810A60042ED78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7A0D763E1F0669A4007F5AB4 /* WalkThrough */,
 				7A0D763B1F0660C2007F5AB4 /* Animations */,
 				7A1DBEB11EED800F00790B54 /* Fonts */,
 				7A1DBE751EEACC7C00790B54 /* ProductCell.swift */,
@@ -238,6 +251,7 @@
 				083AF84E1E9F9A3F00AE5445 /* MainVC.swift */,
 				7A111EDC1EF8165F0042ED78 /* DestCurrVC.swift */,
 				7A111EDE1EF816720042ED78 /* BaseCurrVC.swift */,
+				7AF443251F066C24006C8958 /* OnBoardingVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -268,7 +282,7 @@
 		7AE3F7271EF6877300384FC9 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				7AE3F7281EF6879A00384FC9 /* LaunchScreen@3x.png */,
+				7AF443271F0685B3006C8958 /* LaunchScreen@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -402,8 +416,8 @@
 				083AF8521E9F9A3F00AE5445 /* Main.storyboard in Resources */,
 				7A1DBEB91EED802600790B54 /* Bariol_Bold_Italic.otf in Resources */,
 				7A1DBEBA1EED802600790B54 /* Bariol_Bold.otf in Resources */,
-				7AE3F7291EF6879A00384FC9 /* LaunchScreen@3x.png in Resources */,
 				7A1DBEBB1EED802600790B54 /* Bariol_Light_Italic.otf in Resources */,
+				7AF443281F0685B3006C8958 /* LaunchScreen@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,8 +586,10 @@
 				7A1DBE761EEACC7C00790B54 /* ProductCell.swift in Sources */,
 				7A111ED91EF815840042ED78 /* CountryData.swift in Sources */,
 				083AF84F1E9F9A3F00AE5445 /* MainVC.swift in Sources */,
+				7AF443221F066A6E006C8958 /* OnBoarding.swift in Sources */,
 				7A0D763D1F0660EB007F5AB4 /* CountryButtonPulse.swift in Sources */,
 				7A111ED31EF8114B0042ED78 /* DataService.swift in Sources */,
+				7AF443261F066C24006C8958 /* OnBoardingVC.swift in Sources */,
 				7A111EDD1EF8165F0042ED78 /* DestCurrVC.swift in Sources */,
 				7A111ED51EF811650042ED78 /* ExchangeService.swift in Sources */,
 				7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */,

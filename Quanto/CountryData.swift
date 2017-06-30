@@ -18,7 +18,6 @@ class CountryData {
     
     private var _cities:[String] = []
     
-    
     var countryCode:String{
         return _countryCode
     }
@@ -37,9 +36,6 @@ class CountryData {
     var currencySymbol:String{
         return _currencySymbol
     }
-    
-    
-    
     var cities:[String]{
         return _cities
     }

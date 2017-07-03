@@ -16,6 +16,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var baseCapitalData = [CityData]()
     
     @IBOutlet weak var captionLbl: UILabel!
+    @IBOutlet weak var ProductTVHeader: UILabel!
     var productList:Int!
     var destProdListDict: Dictionary<String, AnyObject>!
     var baseProdListDict: Dictionary<String, AnyObject>!
@@ -67,7 +68,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var decimalBtn: UIButton!
     
-    
+    var onceOff:Int!
     
     @IBOutlet weak var destCountrySelSV: UIStackView!
     @IBOutlet weak var baseCountrySelSV: UIStackView!
@@ -130,7 +131,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.citiesTvStackV.isHidden = true
         self.prodStackV.isHidden = true
         
-//        self.baseCountryBtn.contentHorizontalAlignment = .left
         self.destCountryBtn.contentHorizontalAlignment = .left
         self.calculaterView.isHidden = true
         
@@ -140,15 +140,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.decimalEnabled = true
         decimalBtn.isUserInteractionEnabled = true
         
-        calculationLbl.text = "Swipe right to clear All"
+        calculationLbl.text = "Swipe right to clear all data"
         baseCurrencyLbl.text = "0"
         destinationCurrencyLbl.text = "0"
         
-        self.cokeDestLbl.text = "0 x"
-        self.domBeerDestLbl.text = "0 x"
-        self.oneWayTicketLbl.text = "0 x"
-        self.mealDestLbl.text = "0 x"
-        self.mcmealDestLbl.text = "0 x"
+        self.cokeDestLbl.text = ""
+        self.domBeerDestLbl.text = ""
+        self.oneWayTicketLbl.text = ""
+        self.mealDestLbl.text = ""
+        self.mcmealDestLbl.text = ""
         
         self.productRangeSel = "norm"
         
@@ -159,7 +159,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.calculationLbl.alpha = 0
         self.baseCurrencyLbl.alpha = 0
         self.destinationCurrencyLbl.alpha = 0
-        
+        self.ProductTVHeader.alpha = 0
         self.disableBtns()
         
         if self.destCurrSel == nil || self.baseCurrSel == nil {
@@ -169,11 +169,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             self.destCountryLbl.text = "Destination"   
         }
         
-        self.baseBtnTime = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(MainVC.addBasePulse), userInfo: nil, repeats: true)
-
+        self.baseBtnTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.addBasePulse), userInfo: nil, repeats: true)
+        
+        self.onceOff = 0
     }
     
     func userDidEnterDestData(data: CountryData) {
+        self.destBtnTime.invalidate()
         self.destCountryKey = data.countryName
         self.destCountryBtn.setBackgroundImage(UIImage(named: data.countryCode), for: .normal)
         self.destCurrSel = data.currencyCode
@@ -195,16 +197,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             self.prodImagBG.backgroundColor = UIColor(red:192/255,green:57/255,blue:43/255,alpha:1.0)
             self.captionLbl.text = "Now select cities"
         }
-        
+        self.onceOff = 1
         self.destCityTableView.reloadData()
         
-        self.destBtnTime.invalidate()
+        
     }
     
     func userDidEnterBaseData(data: CountryData) {
         //Animation
         self.baseBtnTime.invalidate()
-        self.destBtnTime = Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(MainVC.addDestPulse), userInfo: nil, repeats: true)
+        
         
 
 
@@ -230,6 +232,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         }
         
         self.baseCityTableView.reloadData()
+        
+        if onceOff == 0 {
+            self.destBtnTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.addDestPulse), userInfo: nil, repeats: true)
+            self.onceOff = 1
+        }
     }
 
 
@@ -273,46 +280,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-//    Dont know how to do this Yet!!
-//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-//        let label = UILabel()
-//        let headerView = UIView()
-//        
-//       
-//            label.textColor = UIColor.white
-//            headerView.backgroundColor = UIColor.init(red: 192/255, green: 57/255, blue: 43/255, alpha: 1)
-//        
-//            headerView.addSubview(label)
-//            return headerView
-//    }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-//            if tableView == baseCityTableView {
-//                return "Base City"
-//            } else if tableView == destCityTableView {
-//                return "Destination City"
-//            } else {
-//                return nil
-//            }
-//        
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if tableView == self.destCityTableView {
-//            return self.destCities.count
-//        } else if tableView == self.baseCityTableView {
-//            return self.baseCities.count
-//        } else {
-//            
-//            if self.baseProdListDict.count == self.destProdListDict.count {
-//                return self.baseProdListDict.count
-//            } else {
-//                return self.baseCityData.count
-//            }
-//            
-//        }
         
         switch tableView
         {
@@ -335,6 +305,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCell:UITableViewCell = tableView.cellForRow(at: indexPath)!
+        selectedCell.contentView.backgroundColor = UIColor(red:74/255, green:74/255, blue:74/255,alpha:1)
         
         self.cityIndexRow = indexPath.row
         
@@ -348,7 +320,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             
             self.baseCityBtn.setTitle(self.baseCities[self.cityIndexRow], for: .normal)
             self.isBaseFull = true
-            self.baseCityBtn.backgroundColor = UIColor(red:34/255, green:103/255, blue:188/255, alpha:1)
+            self.baseCityBtn.backgroundColor = UIColor(red:65/255, green:18/255, blue:13/255, alpha:1)
 
             if self.isDestFull && self.isBaseFull {
                 
@@ -361,6 +333,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.calculationLbl.alpha = 1
                     self.baseCurrencyLbl.alpha = 1
                     self.destinationCurrencyLbl.alpha = 1
+                    self.ProductTVHeader.alpha = 1
                 }
             }
             
@@ -368,8 +341,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
             self.destCityBtn.setTitle(self.destCities[self.cityIndexRow], for: .normal)
             self.isDestFull = true
-            self.destCityBtn.backgroundColor = UIColor(red:34/255, green:103/255, blue:188/255, alpha:1)
-
+            self.destCityBtn.backgroundColor = UIColor(red:65/255, green:18/255, blue:13/255, alpha:1)
+            
             if self.isDestFull && self.isBaseFull {
                 self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
                 self.globalProdAmount()
@@ -380,6 +353,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     self.calculationLbl.alpha = 1
                     self.baseCurrencyLbl.alpha = 1
                     self.destinationCurrencyLbl.alpha = 1
+                    self.ProductTVHeader.alpha = 1
                 }
             }
             
@@ -402,12 +376,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         UIView.animate(withDuration: 0.5) {
             self.bcView.center.x = (self.view.frame.width - self.view.frame.width) + self.bcView.frame.width/2
         }
-        self.baseCityBtn.backgroundColor = UIColor(red:8/255, green:32/255, blue:61/255, alpha:1)
+        self.baseCityBtn.backgroundColor = UIColor(red:112/255, green:34/255, blue:26/255, alpha:1)
     }
     @IBAction func destCityBtnPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
             self.dcView.center.x = self.view.frame.width - self.dcView.frame.width/2
         }
+        self.destCityBtn.backgroundColor = UIColor(red:112/255, green:34/255, blue:26/255, alpha:1)
     }
     
     @IBAction func productRangePressed(sender: UIButton){
@@ -513,7 +488,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         baseCurrencyLbl.text = "0"
         destinationCurrencyLbl.text = "0"
-        calculationLbl.text = "0"
+        calculationLbl.text = ""
         self.cokeDestLbl.text = "0"
         self.domBeerDestLbl.text = "0"
         self.oneWayTicketLbl.text = "0"
@@ -851,7 +826,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         if self.isDestFull && self.isBaseFull {
             
             if convertedAmount > 0 {
-                    self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(destCountry) vs \(baseCountry)"
+                    self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(baseCountry)"
+//                self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(destCountry) vs \(baseCountry)"
             } else{
                 self.captionLbl.text = "Convert some money to see what you can afford"
             }
@@ -887,7 +863,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func addBasePulse(){
         let position = CGPoint(x: baseCountrySelSV.center.x - (baseCountryBtn.frame.width - 2.5), y: baseCountrySelSV.center.y)
-        let pulse = CountryButtonPulse(numberOfPulses:1, radius:50, position: position)
+        let pulse = CountryButtonPulse(numberOfPulses:1, radius:30, position: position)
         pulse.animationDuration = 0.6
         pulse.backgroundColor = UIColor.darkGray.cgColor
         self.view.layer.insertSublayer(pulse, below: baseCountryBtn.layer)
@@ -895,7 +871,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func addDestPulse(){
         let position = CGPoint(x: destCountrySelSV.center.x - (destCountryBtn.frame.width - 2.5), y: destCountrySelSV.center.y)
-        let pulse = CountryButtonPulse(numberOfPulses:1, radius:50, position: position)
+        let pulse = CountryButtonPulse(numberOfPulses:1, radius:30, position: position)
         pulse.animationDuration = 0.6
         pulse.backgroundColor = UIColor.darkGray.cgColor
         self.view.layer.insertSublayer(pulse, below: destCountryBtn.layer)

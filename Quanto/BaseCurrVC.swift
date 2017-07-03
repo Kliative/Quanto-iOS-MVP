@@ -13,19 +13,21 @@ protocol baseDataSentDelegate {
     func userDidEnterBaseData(data: CountryData)
 }
 
-class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     var countryData = [CountryData]()
     
     var cityNameArray:[String] = []
     var countryNameArray:[String] = []
     
+    let searchController = UISearchController(searchResultsController:nil)
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchBar: UISearchBar!
     var isSearching = false
     
     
-    var filterData = [String]()
+    var filterData = [CountryData]()
     
     
     var sortedCurrency:[String] = []
@@ -39,8 +41,15 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         tableView.delegate = self
         tableView.dataSource = self
         
-        searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.done
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.barTintColor = UIColor(red:192/255, green:57/255, blue:43/255,alpha:1)
+        
+        searchController.searchBar.placeholder = "Base Country"
+        definesPresentationContext = true
+        
+        tableView.tableHeaderView = searchController.searchBar
+        
         
         DataService.ds.REF_COUNTRIES.observe(.value, with: { (snapshot) in
             self.countryData = []
@@ -61,7 +70,7 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                         self.countryData.append(countryDataSnap)
                         
                         self.countryNameArray.append(key)
-                        
+//                        self.tableView.insertRows(at: [IndexPath(row:self.countryData.count-1,section:0)], with: UITableViewRowAnimation.automatic)
                         self.cityNameArray = countryDict["cities"] as! [String]
                         
                         //                        print(countryDict["Capital"] as! String)
@@ -76,7 +85,17 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Assign correct Cell to countryData indexPath.row
-        let countryData = self.countryData[indexPath.row]
+        let countryData : CountryData
+        
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            
+            countryData = self.filterData[indexPath.row]
+            
+        } else {
+            countryData = self.countryData[indexPath.row]
+        }
+        
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BaseCurrCell", for:indexPath) as? CurrencyCell{
             
@@ -94,45 +113,62 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //        if isSearching {
-        //            return filterData.count
-        //        }
+        if searchController.isActive && searchController.searchBar.text != ""{
+            return self.filterData.count
+        } else {
+            return countryData.count
+        }
         
-        return countryData.count
+        
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Assign correct Cell to countryData indexPath.row
-        let countryData = self.countryData[indexPath.row]
+        let countryData : CountryData
+        
+        
+        if searchController.isActive && searchController.searchBar.text != ""{
+            
+            countryData = self.filterData[indexPath.row]
+            
+        }
+        else
+        {
+            countryData = self.countryData[indexPath.row]
+        }
         //send back the currency Code, see if you can send the whole object :) :)
-        //            let data = countryData.currencyCode
         delegate?.userDidEnterBaseData(data: countryData)
         
         dismiss(animated: true) {
-            MainVC().reCalc()
+//            MainVC().reCalc()
+            self.dismiss(animated: true, completion: nil)
         }
         
     }
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if searchBar.text == nil || searchBar.text == "" {
-            isSearching = false
-            view.endEditing(true)
-            tableView.reloadData()
-        } else{
-            isSearching = true
-            
-            let lower = searchBar.text!.uppercased()
-            filterData = self.sortedCurrency.filter({$0.range(of: lower) != nil})
-            tableView.reloadData()
-        }
-        
-    }
+
     
     
     @IBAction func dismissBaseVCPressed(_ sender: Any) {
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: false, completion: nil)
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        filterContent(searchText: self.searchController.searchBar.text!)
+        
+    }
+    
+    func filterContent(searchText:String)
+    {
+        self.filterData = self.countryData.filter{ country in
+            
+            let countryNameFilterdList = country.countryName
+            return(countryNameFilterdList.lowercased().contains(searchText.lowercased()))
+            
+        }
+        
+        tableView.reloadData()
     }
     
 }

@@ -42,10 +42,10 @@ class OnBoardingVC: UIViewController, PaperOnboardingDataSource, PaperOnboarding
         let titleFont = UIFont(name:"AppleSDGothicNeo-Regular",size: 24)
         let descriptionFont = UIFont(name:"AppleSDGothicNeo-Regular",size: 18)
         
-        return[("logoWhiteWT","Welcome to Quanto","The app that shows you how much products cost in the cities you are visting. Before or During your Trip","",bgRed,UIColor.white,UIColor.white,titleFont,descriptionFont),
-               ("convertWT","Convert","Quanto can be a standard Currency Converter.","",bgDDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
-               ("conAmountWT","Calculate","See how many products your converted amount can buy you.","",bgDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
-               ("compareWT","Compare","Compare product prices with products in different cities.","",bgYellow,UIColor.darkGray,UIColor.darkGray,titleFont,descriptionFont),
+        return[("logoWhiteWT","Welcome to Quanto","The app that shows you how much \n stuff costs in the cities you are visting. Before and during your trip \n \n \n Swipe Left to continue","",bgRed,UIColor.white,UIColor.white,titleFont,descriptionFont),
+               ("convertWT","Convert","Quanto can be a standard \n Currency Converter.","",bgDDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
+               ("conAmountWT","Calculate","See how much your converted \n amount can buy you.","",bgDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
+               ("compareWT","Compare","See the price difference \n of stuff from different cities.","",bgYellow,UIColor.darkGray,UIColor.darkGray,titleFont,descriptionFont),
                ("logoWT","","Money is only a tool. It will take you wherever you wish, but it will not replace YOU as the driver. \n \n ~Ayn Rand","",bgWhite,bgRed,bgRed,titleFont,descriptionFont)
             ][index] as! OnboardingItemInfo
     }
@@ -76,10 +76,10 @@ class OnBoardingVC: UIViewController, PaperOnboardingDataSource, PaperOnboarding
         }
     }
     @IBAction func getStartedPressed(_ sender: Any) {
-        //        let userDefaults = UserDefaults.standard
-        //
-        //        userDefaults.set(true, forKey: "onboardingComplete")
-        //        userDefaults.synchronize()
+                let userDefaults = UserDefaults.standard
+        
+                userDefaults.set(true, forKey: "onboardingComplete")
+                userDefaults.synchronize()
     }
     
 }

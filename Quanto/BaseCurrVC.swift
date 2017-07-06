@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseDatabase
+import Firebase
 
 protocol baseDataSentDelegate {
     func userDidEnterBaseData(data: CountryData)
@@ -26,6 +27,8 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     var isSearching = false
     
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    var activityView:UIView!
     
     var filterData = [CountryData]()
     
@@ -40,6 +43,22 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        
+        self.activityView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height))
+        
+        // Change UIView background colour
+        activityView.backgroundColor = UIColor(red:192/255, green:57/255, blue:43/255, alpha:1)
+        
+        
+        activityIndicator.center = self.activityView.center
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.white
+        
+        self.activityView.addSubview(activityIndicator)
+        self.view.addSubview(activityView)
+        
+        activityIndicator.startAnimating()
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -77,7 +96,13 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
                     }
                 }
             }
-            self.tableView.reloadData()
+            DispatchQueue.main.async() { () -> Void in
+                
+                self.activityIndicator.stopAnimating()
+                self.activityView.removeFromSuperview()
+                self.tableView.reloadData()
+            }
+            
         })
         
         
@@ -122,6 +147,8 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         
         
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Assign correct Cell to countryData indexPath.row
         let countryData : CountryData
@@ -138,7 +165,7 @@ class BaseCurrVC: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         }
         //send back the currency Code, see if you can send the whole object :) :)
         delegate?.userDidEnterBaseData(data: countryData)
-        
+        FIRAnalytics.logEvent(withName: "Base_Country_Sel", parameters: ["City":countryData.countryName])
         dismiss(animated: true) {
 //            MainVC().reCalc()
             self.dismiss(animated: true, completion: nil)

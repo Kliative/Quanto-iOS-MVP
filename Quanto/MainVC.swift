@@ -79,6 +79,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var onceOff:Int!
     var onceOffTap:Bool!
     
+    var onceOffTapInstruction:Bool!
+    
     @IBOutlet weak var destCountrySelSV: UIStackView!
     @IBOutlet weak var baseCountrySelSV: UIStackView!
     
@@ -157,6 +159,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         baseCurrencyLbl.text = "Tap for Pad"
         destinationCurrencyLbl.text = "0"
         onceOffTap = false
+        onceOffTapInstruction = true
         
         self.cokeDestLbl.text = ""
         self.domBeerDestLbl.text = ""
@@ -442,9 +445,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
     }
     @IBAction func showCalculatorViewPressed(_ sender: UITapGestureRecognizer) {
-            baseCurrencyLbl.text = "0"
+        
+            if onceOffTapInstruction {
+                    baseCurrencyLbl.text = "0"
+                    onceOffTapInstruction = false
+            }
+        
             self.calculaterView.isHidden = false
             onceOffTap = true
+        
     }
     @IBAction func baseCityBtnPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {

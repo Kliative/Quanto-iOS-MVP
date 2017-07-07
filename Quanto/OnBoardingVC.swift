@@ -42,7 +42,7 @@ class OnBoardingVC: UIViewController, PaperOnboardingDataSource, PaperOnboarding
         let titleFont = UIFont(name:"AppleSDGothicNeo-Regular",size: 24)
         let descriptionFont = UIFont(name:"AppleSDGothicNeo-Regular",size: 18)
         
-        return[("logoWhiteWT","Welcome to Quanto","The app that shows you how much \n stuff costs in the cities you are visting. Before and during your trip \n \n \n Swipe Left to continue","",bgRed,UIColor.white,UIColor.white,titleFont,descriptionFont),
+        return[("logoWhiteWT","Welcome to Quanto","The app that shows you how much \n stuff costs in the cities you are visiting. Before and during your trip \n \n \n Swipe Left to continue","",bgRed,UIColor.white,UIColor.white,titleFont,descriptionFont),
                ("convertWT","Convert","Quanto can be a standard \n Currency Converter.","",bgDDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
                ("conAmountWT","Calculate","See how much your converted \n amount can buy you.","",bgDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
                ("compareWT","Compare","See the price difference \n of stuff from different cities.","",bgYellow,UIColor.darkGray,UIColor.darkGray,titleFont,descriptionFont),

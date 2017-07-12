@@ -87,12 +87,12 @@ class ProductCell: UITableViewCell {
                     self.productIcon.image = UIImage(named:"OneWayTicket")
                     
                 default:
-                    print("Integer out of range")
+                    break
                 }
                 
                 
-                self.baseProdPrice.text = "\(baseCurrSymbol)\(basePriceString)"
-                self.destProdPrice.text = "\(destCurrSymbol)\(destPriceString)"
+                self.baseProdPrice.text = "\(baseCurrSymbol)\(String(format: "%.2f", basePriceString))"
+                self.destProdPrice.text = "\(destCurrSymbol)\(String(format: "%.2f", destPriceString))"
                 
                 let convertedPrice = Float(self.currentRates.doConvertion(dest: baseCurr, base: destCurr, price: destPriceString))!
                 

@@ -88,7 +88,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAc-KC-r4S">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_icon" translatesAutoresizingMaskIntoConstraints="NO" id="QOR-9W-SgC">
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoHeader" translatesAutoresizingMaskIntoConstraints="NO" id="QOR-9W-SgC">
                                         <rect key="frame" x="164" y="25" width="47" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="3Pt-B3-CVH"/>
@@ -381,8 +381,8 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-BF-FWT">
-                                <rect key="frame" x="0.0" y="432" width="375" height="235"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nfv-BF-FWT">
+                                <rect key="frame" x="1000" y="432" width="375" height="235"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYj-RG-ppR">
                                         <rect key="frame" x="0.0" y="-1" width="375" height="59"/>
@@ -725,7 +725,7 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select countries" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIC-W1-5BC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
-                                        <color key="backgroundColor" red="0.99215686274509807" green="0.82352941176470584" blue="0.5490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="94C-cl-Rdg"/>
                                         </constraints>
@@ -737,7 +737,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="29"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Bp-F8-onr">
-                                                <rect key="frame" x="0.0" y="0.0" width="138" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="137.5" height="29"/>
                                                 <color key="backgroundColor" red="0.43921568630000002" green="0.1333333333" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="0Bp-F8-onr" secondAttribute="height" multiplier="19:4" id="eUS-3p-NRD"/>
@@ -758,7 +758,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9c-ej-GRA">
-                                                <rect key="frame" x="138" y="0.0" width="100" height="29"/>
+                                                <rect key="frame" x="137.5" y="0.0" width="100" height="29"/>
                                                 <color key="backgroundColor" red="0.25490196079999999" green="0.070588235289999995" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="A9c-ej-GRA" secondAttribute="height" multiplier="100:29" id="Ff9-3i-3E6"/>
@@ -768,7 +768,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esr-O7-7Jk">
-                                                <rect key="frame" x="238" y="0.0" width="137" height="29"/>
+                                                <rect key="frame" x="237.5" y="0.0" width="137.5" height="29"/>
                                                 <color key="backgroundColor" red="0.43921568630000002" green="0.1333333333" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="esr-O7-7Jk" secondAttribute="height" multiplier="19:4" id="3eE-PB-sly"/>
@@ -791,7 +791,7 @@
                                         <color key="backgroundColor" red="0.1333333333" green="0.4039215686" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Z8q-Eo-d4b">
-                                        <rect key="frame" x="21" y="66" width="334" height="75"/>
+                                        <rect key="frame" x="20.5" y="66" width="334" height="75"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6YD-BQ-aed">
                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="75"/>
@@ -1256,7 +1256,7 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Drn-9v-Rf8">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.82352941180000006" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BaseCurrCell" rowHeight="60" id="v8W-ih-8Nl" customClass="CurrencyCell" customModule="Quanto" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
@@ -1377,7 +1377,7 @@
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kbb-Oa-hzs">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.99215686270000003" green="0.82352941180000006" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.75294117650000003" green="0.22352941179999999" blue="0.16862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DestCurrCell" rowHeight="60" id="O3U-kb-JcF" customClass="CurrencyCell" customModule="Quanto" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
@@ -1470,7 +1470,7 @@
         <image name="baseBtn-s" width="137" height="29"/>
         <image name="destBtn-s" width="137" height="29"/>
         <image name="emptyFlag" width="56" height="40"/>
-        <image name="logo_icon" width="54" height="54"/>
+        <image name="logoHeader" width="28" height="33"/>
         <image name="moreExpensive_arrow" width="15" height="8"/>
     </resources>
 </document>

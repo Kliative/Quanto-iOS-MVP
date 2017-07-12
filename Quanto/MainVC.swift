@@ -22,7 +22,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var productList:Int!
     var destProdListDict: Dictionary<String, AnyObject>!
     var baseProdListDict: Dictionary<String, AnyObject>!
+    
     var capitalName:String!
+    var baseCitySel:String!
+    var destCitySel:String!
     
     var isBaseFull = false
     var isDestFull = false
@@ -253,7 +256,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
 //        print("---- baseFull Negative \(self.isBaseFull)")
         
-        if onceOffTap {
+        if onceOffTapInstruction == false {
             baseCurrencyLbl.text = "0"
         }
         
@@ -276,9 +279,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         self.baseCityTableView.reloadData()
         
-        if onceOffTap {
+        if onceOffTapInstruction == false {
             baseCurrencyLbl.text = "0"
         }
+        
         if onceOff == 0 {
             self.destBtnTime = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(MainVC.addDestPulse), userInfo: nil, repeats: true)
             self.destCountryLbl.text = "Destination"
@@ -346,8 +350,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 if self.baseProdListDict.count == self.destProdListDict.count {
                     return self.baseProdListDict.count
                 } else {
-                    return self.baseCityData.count
-            }
+                    return 0
+                }
                 
             case baseCityTableView:
                 return self.baseCities.count
@@ -373,11 +377,13 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             
         case baseCityTableView:
             self.getBaseCitiesProd(countryKey: self.baseCountryKey, cityKey: self.baseCities[self.cityIndexRow], productRange: self.productRangeSel)
+            
+            
             FIRAnalytics.logEvent(withName: "Base_City_Sel", parameters: ["City":self.baseCities[self.cityIndexRow]])
             self.baseCityBtn.setTitle(self.baseCities[self.cityIndexRow], for: .normal)
+            self.baseCitySel = "\(self.baseCities[self.cityIndexRow])"
             self.isBaseFull = true
             self.baseCityBtn.backgroundColor = UIColor(red:65/255, green:18/255, blue:13/255, alpha:1)
-            
             
             if self.isDestFull && self.isBaseFull {
                 
@@ -398,15 +404,20 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     
                 }
                 self.isBaseFull = false
+                self.resetAll()
+                if onceOffTapInstruction == false {
+                    baseCurrencyLbl.text = "0"
+                }
             }
             
         case destCityTableView:
             self.getDestCitiesProd(countryKey: self.destCountryKey, cityKey: self.destCities[self.cityIndexRow], productRange: self.productRangeSel)
             FIRAnalytics.logEvent(withName: "Dest_City_Sel", parameters: ["City":self.destCities[self.cityIndexRow]])
             self.destCityBtn.setTitle(self.destCities[self.cityIndexRow], for: .normal)
-            
+            self.destCitySel = "\(self.destCities[self.cityIndexRow])"
             self.isDestFull = true
             self.destCityBtn.backgroundColor = UIColor(red:65/255, green:18/255, blue:13/255, alpha:1)
+            
             
             if self.isDestFull && self.isBaseFull {
                 
@@ -430,6 +441,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             }
             
             self.isDestFull = false
+            self.resetAll()
+            if onceOffTapInstruction == false {
+                baseCurrencyLbl.text = "0"
+            }
             
         default:
             break
@@ -463,6 +478,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         self.isBaseFull = true
         self.isDestFull = true
+        self.baseCityData.removeAll()
     }
     @IBAction func destCityBtnPressed(_ sender: Any) {
         UIView.animate(withDuration: 0.5) {
@@ -471,6 +487,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.destCityBtn.backgroundColor = UIColor(red:112/255, green:34/255, blue:26/255, alpha:1)
         self.isBaseFull = true
         self.isDestFull = true
+        self.destCityData.removeAll()
+        
     }
     
     @IBAction func productRangePressed(sender: UIButton){
@@ -611,11 +629,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         destinationCurrencyLbl.text = "0"
         calculationLbl.text = "0"
         self.swipeInstructLbl.alpha = 0
-        self.cokeDestLbl.text = "0"
-        self.domBeerDestLbl.text = "0"
-        self.oneWayTicketLbl.text = "0"
-        self.mealDestLbl.text = "0"
-        self.mcmealDestLbl.text = "0"
+        self.cokeDestLbl.text = "0x"
+        self.domBeerDestLbl.text = "0x"
+        self.oneWayTicketLbl.text = "0x"
+        self.mealDestLbl.text = "0x"
+        self.mcmealDestLbl.text = "0x"
         
         self.prodStackV.isHidden = true
         
@@ -703,7 +721,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     let stringResult = Float(result)!
                     let priceToConver = Float(stringResult)
                     
-                    let convertedAmount = Int(self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver))!
+                    let convertedAmount = self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver)
                     
                     destinationCurrencyLbl.text = "\(convertedAmount)"
                 }
@@ -734,20 +752,16 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     
     func getDestCitiesProd(countryKey:String, cityKey: String, productRange: String){
-        print("--- running: getDestCitiesProd")
+//        print("--- running: getDestCitiesProd")
         DataService.ds.REF_CITIES.child(countryKey).observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]{
                 for snap in snapshot {
                     if let countryCityDict = snap.value as? Dictionary<String, AnyObject> {
                         let key = snap.key
                         let destCityProdData = CityData(cityName:key, countryName:countryKey, productData:countryCityDict)
-                        
-                        if self.destCityData.isEmpty {
+             
                             self.destCityData.append(destCityProdData)
-                        } else {
-                            self.destCityData.removeAll()
-                            self.destCityData.append(destCityProdData)
-                        }
+
                         for i in (0..<self.destCityData.count){
                             if (self.destCityData[i].cityName == cityKey) {
                                 self.destProdListDict.removeAll()
@@ -761,7 +775,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         })
     }
     func productAmount(convAm: Float){
-        print("--productAmount")
+        
         
         if runningNumber == "" {
             
@@ -778,6 +792,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         if self.cityIndexRow != nil {
             
             for i in (0..<self.destCityData.count){
+               
                 if (destCityData[i].cityName == self.destCities[self.cityIndexRow])
                 {
                     let cokeAmount = convAm / Float("\(self.destCityData[i].coke[self.productRangeSel]!)")!
@@ -794,7 +809,6 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 }
             }
         } else {
-            print("--destCapital")
             
             for i in (0..<self.destCityData.count){
                 if (destCityData[i].cityName == self.destCapital)
@@ -814,14 +828,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             }
         }
         
-       
-        
-        
         self.prodStackV.isHidden = false
         
     }
     func getBaseCitiesProd(countryKey:String, cityKey: String, productRange: String){
-        print("--- running: getBaseCitiesProd")
+        
         DataService.ds.REF_CITIES.child(countryKey).observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]{
                 for snap in snapshot {
@@ -829,12 +840,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                         let key = snap.key
                         let baseCityProdData = CityData(cityName:key, countryName: countryKey, productData:countryCityDict)
                         
-                        if self.baseCityData.isEmpty {
+
                             self.baseCityData.append(baseCityProdData)
-                        } else {
-                            self.baseCityData.removeAll()
-                            self.baseCityData.append(baseCityProdData)
-                        }
+
                         self.productList = self.baseCityData[0].productListCount
                         for i in (0..<self.baseCityData.count){
                             if (self.baseCityData[i].cityName == cityKey)
@@ -879,22 +887,17 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             
             let stringResult = Float(result)!
             let priceToConver = Float(round(stringResult))
-            let convertedAmount = Float(self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver))!
+            let convertedAmount = self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver)
             
-            if self.destCityData.isEmpty && self.baseCityData.isEmpty {
+            if self.destCityData.count > 0 && self.baseCityData.count > 0 {
                 
-            } else {
-                
-                if self.destCities.isEmpty {
-                    
-                } else {
-                    self.productAmount(convAm: convertedAmount)
+                if self.destCities.count > 0 {
+                    self.productAmount(convAm: Float(convertedAmount)!)
                 }
                 
             }
             
-            destinationCurrencyLbl.text = "\(Float(round(convertedAmount)))"
-//            destinationCurrencyLbl.textColor = UIColor(red:0/255, green:0/255, blue:0/255, alpha:1)
+            destinationCurrencyLbl.text = "\(String(format: "%.2f", Float(convertedAmount)!))"
         }
         
     }
@@ -913,9 +916,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                 let stringResult = Float(result)!
                 let priceToConver = Float(round(stringResult))
                 
-                let convertedAmount = Float(self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver))!
+                let convertedAmount = self.currentRates.doConvertion(dest: self.destCurrSel, base: self.baseCurrSel, price: priceToConver)
                 
-                destinationCurrencyLbl.text = "\(Float(round(convertedAmount)))"
+                destinationCurrencyLbl.text = "\(convertedAmount)"
             }
         } else {
             runningNumber.removeAll()
@@ -971,14 +974,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             prodRange = "Ballin"
             
         default:
-            print("Integer out of range")
+           break
         }
         
         if self.isDestFull && self.isBaseFull {
             
             if convertedAmount > 0 {
-                    self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(baseCountry)"
-//                self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(destCountry) vs \(baseCountry)"
+                    self.captionLbl.text = "\(destCurrencySymbol) \(Int(convertedAmount)) \(prodRange) in \(self.destCitySel!)"
+
             } else{
                 self.captionLbl.text = "Convert"
             }
@@ -1028,6 +1031,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         pulse.backgroundColor = UIColor.darkGray.cgColor
         self.view.layer.insertSublayer(pulse, below: destCountryBtn.layer)
     }
+    
     
 }
 

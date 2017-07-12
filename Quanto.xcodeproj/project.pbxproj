@@ -93,6 +93,7 @@
 		7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin.otf; sourceTree = "<group>"; };
 		7A1DBEC01EF172BE00790B54 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
 		7A75586E1EF684E500EC2396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Quanto/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7A849D5D1F14E3C700079161 /* Quanto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quanto.entitlements; sourceTree = "<group>"; };
 		7AF443211F066A6E006C8958 /* OnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		7AF443251F066C24006C8958 /* OnBoardingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardingVC.swift; sourceTree = "<group>"; };
 		7AF443271F0685B3006C8958 /* LaunchScreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreen@2x.png"; sourceTree = "<group>"; };
@@ -158,6 +159,7 @@
 		083AF84B1E9F9A3F00AE5445 /* Quanto */ = {
 			isa = PBXGroup;
 			children = (
+				7A849D5D1F14E3C700079161 /* Quanto.entitlements */,
 				083AF84C1E9F9A3F00AE5445 /* AppDelegate.swift */,
 				7A111ED01EF8112A0042ED78 /* Constants.swift */,
 				7A111ED21EF8114B0042ED78 /* DataService.swift */,
@@ -367,6 +369,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 79872QZ8UM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					083AF85C1E9F9A3F00AE5445 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -761,6 +768,7 @@
 			baseConfigurationReference = 322B8AADB34F9756AAA2CA05 /* Pods-Quanto.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Quanto/Quanto.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Quanto/Info.plist;
@@ -778,6 +786,7 @@
 			baseConfigurationReference = D7D6C895F026A255A0E8E604 /* Pods-Quanto.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Quanto/Quanto.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Quanto/Info.plist;

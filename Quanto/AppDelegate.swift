@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         application.registerForRemoteNotifications()
         
         FIRApp.configure()
-        
+        FIRDatabase.database().persistenceEnabled = true
         return true
     }
 

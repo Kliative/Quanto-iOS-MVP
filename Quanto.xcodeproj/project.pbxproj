@@ -368,7 +368,7 @@
 					083AF8481E9F9A3E00AE5445 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 79872QZ8UM;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -769,14 +769,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Quanto/Quanto.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 79872QZ8UM;
 				INFOPLIST_FILE = Quanto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.klish3.Quanto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c5c49d0b-d77a-4641-ac5b-3e21590ecbf5";
+				PROVISIONING_PROFILE_SPECIFIER = QuantoProvisionTwo;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -787,14 +787,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Quanto/Quanto.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = 79872QZ8UM;
 				INFOPLIST_FILE = Quanto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.klish3.Quanto;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "c5c49d0b-d77a-4641-ac5b-3e21590ecbf5";
+				PROVISIONING_PROFILE_SPECIFIER = QuantoProvisionTwo;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

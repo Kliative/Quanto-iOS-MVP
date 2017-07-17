@@ -7,6 +7,9 @@
 //
 
 import XCTest
+import Alamofire
+import Firebase
+
 @testable import Quanto
 
 class QuantoTests: XCTestCase {
@@ -21,16 +24,80 @@ class QuantoTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testAlamofireReturns200(){
+        let urlString = LASTEST_DEV_RATES
+        let expectation = self.expectation(description: "request should succeed")
+        
+        var response: DefaultDataResponse?
+        
+        // When
+        Alamofire.request(urlString).response { resp in
+            response = resp
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
+        // Then
+        XCTAssertNotNil(response?.request)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.response)
+        XCTAssertNotNil(response?.data)
+        //Check status Code Repsonse not 401
+        XCTAssertEqual(Int((response?.response?.statusCode)!),200,"Correct Response from Server")
+        XCTAssertNil(response?.error)
+        
+        if #available(iOS 10.0, macOS 10.12, tvOS 10.0, *) {
+            XCTAssertNotNil(response?.metrics)
         }
     }
+    func testRatesAreLoaded(){
+        
+        let exchangeRates = CurrentExchange()
+        let expect = expectation(description: "Algorithm Check")
+        exchangeRates.downloadExchangeRates { JSON in
+            XCTAssertNotNil(JSON, "Expected non-nil string")
+            XCTAssertNotNil(exchangeRates.rates)
+            expect.fulfill()
+        }
+        waitForExpectations(timeout: 5.0, handler: nil)
+    
+    }
+    func _testConversionAlgo(){
+        // Crashed cause the self.rates array is empty on testing----Figure Out
+        let destC = "USD"
+        let baseC = "ZAR"
+        let price = Float(2)
+        
+        let exchangeRates = CurrentExchange()
+        
+        XCTAssertNotNil(exchangeRates.doConvertion(dest: destC, base: baseC, price: price))
+        
+        
+    }
+    func testFirebaseDB(){
+        let expect = expectation(description: "FirebaseDB Check Connection")
+        DataService.ds.REF_COUNTRIES.observe(.value, with: { (snapshot) in
+            XCTAssertNotNil(snapshot)
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]{
+                for snap in snapshot {
+                    XCTAssertNotNil(snap)
+                }
+            }
+            expect.fulfill()
+        })
+        DataService.ds.REF_CITIES.observe(.value, with: { (snapshot) in
+            XCTAssertNotNil(snapshot)
+            if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]{
+                for snap in snapshot {
+                    XCTAssertNotNil(snap)
+                }
+            }
+            expect.fulfill()
+        })
+        waitForExpectations(timeout: 5.0, handler: nil)
+
+    }
+    
     
 }

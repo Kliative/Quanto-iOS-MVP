@@ -1290,13 +1290,12 @@
                                                                 <constraint firstAttribute="width" secondItem="dkX-Ue-VKk" secondAttribute="height" multiplier="307:12" id="I1H-6q-NhD"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.99215686270000003" green="0.82352941180000006" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="D14-gX-9pi" firstAttribute="leading" secondItem="ZwX-vc-ts8" secondAttribute="trailing" constant="8" id="E1h-Qm-iAM"/>
                                                 <constraint firstItem="ZwX-vc-ts8" firstAttribute="leading" secondItem="tbc-60-uFM" secondAttribute="leadingMargin" id="Mio-3p-fkC"/>
@@ -1306,7 +1305,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="D14-gX-9pi" secondAttribute="bottom" constant="4.5" id="uEp-ve-u4E"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.99215686270000003" green="0.82352941180000006" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="countryNameLbl" destination="0jW-X2-bDs" id="5ID-zG-hvk"/>
                                             <outlet property="currencyImage" destination="ZwX-vc-ts8" id="aRf-A6-zKz"/>
@@ -1411,13 +1410,12 @@
                                                                 <constraint firstAttribute="width" secondItem="XVh-np-ddI" secondAttribute="height" multiplier="307:12" id="apN-vS-aBf"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.99215686270000003" green="0.82352941180000006" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="YrB-s1-N5I" firstAttribute="leading" secondItem="ih4-un-ZHt" secondAttribute="leadingMargin" id="8LB-bU-aO2"/>
                                                 <constraint firstItem="qbB-QU-NPs" firstAttribute="top" secondItem="ih4-un-ZHt" secondAttribute="topMargin" constant="6" id="EY8-qh-iuf"/>
@@ -1427,7 +1425,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="qbB-QU-NPs" secondAttribute="bottom" constant="4.5" id="xh0-DN-qxr"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.99215686270000003" green="0.82352941180000006" blue="0.54901960780000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="countryNameLbl" destination="zsG-A7-hRc" id="Pcg-k7-gej"/>
                                             <outlet property="currencyImage" destination="YrB-s1-N5I" id="cFj-J9-dEP"/>

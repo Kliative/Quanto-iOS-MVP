@@ -100,16 +100,15 @@ class ProductCell: UITableViewCell {
                 
                 self.calculationLbl.text = "\(baseCurrSymbol)\(String(format: "%.2f", abs(calc)))"
                 let basePriceText = basePriceString
-                let difPrice = Float(abs(calc))
                 
-                
-                if difPrice >= basePriceText {
+                if convertedPrice >= basePriceText {
                     self.expensiveLbl.text = "More Expensive"
                     self.expensiveIcon.image = UIImage(named:"moreExpensive_arrow")
                 } else {
                     self.expensiveLbl.text = "Less Expensive"
                     self.expensiveIcon.image = UIImage(named:"lessExpensive_arrow")
                 }
+                
             }
             
         }

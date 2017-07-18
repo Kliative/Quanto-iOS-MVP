@@ -49,6 +49,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="getStartedPressed:" destination="tqS-sf-0SK" eventType="touchUpInside" id="wTJ-vJ-vSs"/>
                                     <segue destination="BYZ-38-t0r" kind="show" id="w10-hZ-twc"/>
                                 </connections>
                             </button>
@@ -76,7 +77,7 @@
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="Mainapp" id="BYZ-38-t0r" customClass="MainVC" customModule="Quanto" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainApp" id="BYZ-38-t0r" customClass="MainVC" customModule="Quanto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

@@ -36,11 +36,11 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     var baseBtnTime:Timer!
     var destBtnTime:Timer!
     
-    @IBOutlet weak var cokeDestLbl: UILabel!
-    @IBOutlet weak var domBeerDestLbl: UILabel!
-    @IBOutlet weak var mealDestLbl: UILabel!
-    @IBOutlet weak var oneWayTicketLbl: UILabel!
-    @IBOutlet weak var mcmealDestLbl: UILabel!
+    @IBOutlet weak var cokeDestLbl: CountingLabel!
+    @IBOutlet weak var domBeerDestLbl: CountingLabel!
+    @IBOutlet weak var mealDestLbl: CountingLabel!
+    @IBOutlet weak var oneWayTicketLbl: CountingLabel!
+    @IBOutlet weak var mcmealDestLbl: CountingLabel!
 
     @IBOutlet weak var swipeInstructLbl: UILabel!
     
@@ -604,6 +604,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     }
     
     @IBAction func decimalBtnPressed(_ sender: Any) {
+        
         if self.decimalEnabled == true {
             runningNumber += "."
             displayRunningNumber += "."
@@ -617,13 +618,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
         self.resetAll()
         baseCurrencyLbl.text = "0"
+        
     }
     
     func resetAll(){
-        
+        self.decimalEnabled = true
         runningNumber.removeAll()
         displayRunningNumber.removeAll()
-        
+        decimalBtn.isUserInteractionEnabled = true
         
         
         destinationCurrencyLbl.text = "0"
@@ -695,7 +697,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         
     }
     func processOperation(operation: Operation){
-        self.decimalEnabled = true
+        
         decimalBtn.isUserInteractionEnabled = true
         if currentOperation != Operation.Empty {
             if runningNumber != "" {
@@ -753,6 +755,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     
     func getDestCitiesProd(countryKey:String, cityKey: String, productRange: String){
 //        print("--- running: getDestCitiesProd")
+        
         DataService.ds.REF_CITIES.child(countryKey).observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [FIRDataSnapshot]{
                 for snap in snapshot {
@@ -801,33 +804,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
                     let mcMealAmount = convAm / Float("\(self.destCityData[i].mcMeal[self.productRangeSel]!)")!
                     let oneWayTicket = convAm / Float("\(self.destCityData[i].oneWayTicket[self.productRangeSel]!)")!
                     
-                    self.cokeDestLbl.text = "\(Int(cokeAmount))x"
-                    self.domBeerDestLbl.text = "\(Int(domBeerAmount))x"
-                    self.mcmealDestLbl.text = "\(Int(mcMealAmount))x"
-                    self.oneWayTicketLbl.text = "\(Int(oneWayTicket))x"
-                    self.mealDestLbl.text = "\(Int(mealAmount))x"
+                    self.cokeDestLbl.count(fromValue: 0, to: Float(cokeAmount), withDuration: 2, andAnimationType: .EaseOut, andCouterType: .Int)
+                    self.domBeerDestLbl.count(fromValue: 0, to: Float(domBeerAmount), withDuration: 2, andAnimationType: .EaseOut, andCouterType: .Int)
+                    self.oneWayTicketLbl.count(fromValue: 0, to: Float(oneWayTicket), withDuration: 2, andAnimationType: .EaseOut, andCouterType: .Int)
+                    self.mcmealDestLbl.count(fromValue: 0, to: Float(mcMealAmount), withDuration: 2, andAnimationType: .EaseOut, andCouterType: .Int)
+                    self.mealDestLbl.count(fromValue: 0, to: Float(mealAmount), withDuration: 2, andAnimationType: .EaseOut, andCouterType: .Int)
                 }
             }
-        } else {
-            
-            for i in (0..<self.destCityData.count){
-                if (destCityData[i].cityName == self.destCapital)
-                {
-                    let cokeAmount = convAm / Float("\(self.destCityData[i].coke[self.productRangeSel]!)")!
-                    let domBeerAmount = convAm / Float("\(self.destCityData[i].domBeer[self.productRangeSel]!)")!
-                    let mealAmount = convAm / Float("\(self.destCityData[i].meal[self.productRangeSel]!)")!
-                    let mcMealAmount = convAm / Float("\(self.destCityData[i].mcMeal[self.productRangeSel]!)")!
-                    let oneWayTicket = convAm / Float("\(self.destCityData[i].oneWayTicket[self.productRangeSel]!)")!
-                    
-                    self.cokeDestLbl.text = "\(Int(cokeAmount))x"
-                    self.domBeerDestLbl.text = "\(Int(domBeerAmount))x"
-                    self.oneWayTicketLbl.text = "\(Int(oneWayTicket))x"
-                    self.mcmealDestLbl.text = "\(Int(mcMealAmount))x"
-                    self.mealDestLbl.text = "\(Int(mealAmount))x"
-                }
-            }
-        }
-        
+        }        
         self.prodStackV.isHidden = false
         
     }
@@ -932,6 +916,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
             runningNumber = ""
             displayRunningNumber = ""
             result = "0"
+            
+            resetAll()
+
+            
             self.swipeInstructLbl.alpha = 0
             self.captionLabel(destCurrencySymbol:self.destCurrSymbol,range:self.productRangeSel,baseCountry:self.baseCountryKey,destCountry:self.destCountryKey)
             

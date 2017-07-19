@@ -28,7 +28,7 @@ class CurrentExchange {
     
     func downloadExchangeRates(completed: @escaping DownloadComplete) {
         
-        Alamofire.request(LASTEST_RATES).responseJSON { response in
+        Alamofire.request(LASTEST_DEV_RATES).responseJSON { response in
             let result = response.result
             //Get JSON data from OpenX
             if let dict = result.value as? Dictionary<String, AnyObject> {
@@ -58,7 +58,6 @@ class CurrentExchange {
     //Makes it possible to convert from any curreny --> Returns String
     func doConvertion(dest: String, base: String, price: Float) -> String{
         
-        
         let destCurrRate = self.rates[dest]
         let baseCurrRate = self.rates[base]
         
@@ -70,8 +69,6 @@ class CurrentExchange {
         let calcResult = "\(finalConv*priceToCalc)"
         
         return calcResult
-        
-        
         
     }
 }

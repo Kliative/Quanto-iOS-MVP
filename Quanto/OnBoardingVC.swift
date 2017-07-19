@@ -8,7 +8,8 @@
 
 import UIKit
 import paper_onboarding
-
+import FirebaseDatabase
+import Firebase
 class OnBoardingVC: UIViewController, PaperOnboardingDataSource, PaperOnboardingDelegate {
     
 
@@ -26,6 +27,19 @@ class OnBoardingVC: UIViewController, PaperOnboardingDataSource, PaperOnboarding
         self.getStartedBtn.alpha = 0
         self.getStartedBtn.layer.bounds = CGRect(x:0,y:0,width:100,height:100)
         self.getStartedBtn.layer.cornerRadius = 2
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        DataService.ds.REF_COUNTRIES.observe(.value, with: { (snapshot) in
+            _ = snapshot.children.allObjects as? [FIRDataSnapshot]
+        })
+        DataService.ds.REF_CITIES.observe(.value, with: { (snapshot) in
+            _ = snapshot.children.allObjects as? [FIRDataSnapshot]
+        })
     }
     
     func onboardingItemsCount() -> Int {
@@ -42,7 +56,7 @@ class OnBoardingVC: UIViewController, PaperOnboardingDataSource, PaperOnboarding
         let titleFont = UIFont(name:"AppleSDGothicNeo-Regular",size: 24)
         let descriptionFont = UIFont(name:"AppleSDGothicNeo-Regular",size: 18)
         
-        return[("logoWhiteWT","Welcome to Quanto","The app that shows you how much \n stuff costs in the cities you are visiting. Before and during your trip \n \n \n Swipe Left to continue","",bgRed,UIColor.white,UIColor.white,titleFont,descriptionFont),
+        return[("logoWhiteWT","Welcome to Quanto","The app that shows you how much stuff costs in the cities you are visiting. \n Before & during your trip \n \n \n Swipe Left to continue","",bgRed,UIColor.white,UIColor.white,titleFont,descriptionFont),
                ("convertWT","Convert","Quanto can be a standard \n Currency Converter.","",bgDDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
                ("conAmountWT","Calculate","See how much your converted \n amount can buy you.","",bgDGrey,UIColor.white,UIColor.white,titleFont,descriptionFont),
                ("compareWT","Compare","See the price difference \n of stuff from different cities.","",bgYellow,UIColor.darkGray,UIColor.darkGray,titleFont,descriptionFont),

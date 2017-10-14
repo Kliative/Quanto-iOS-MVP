@@ -12,6 +12,7 @@ import Firebase
 
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseDataSentDelegate, destDataSentDelegate {
     
+    @IBOutlet weak var calcBgView: UIView!
     var destCityData = [CityData]()
     var baseCityData = [CityData]()
     var baseCapitalData = [CityData]()
@@ -135,6 +136,8 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.calcBgView.backgroundColor = UIColor(patternImage: UIImage(named:"calc-bg")!)
         self.productListTableView.delegate = self
         self.productListTableView.dataSource = self
         
@@ -213,7 +216,7 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource,baseD
         self.destCountryFlagName = data.countryCode
         self.globalProdAmount()
         
-//        print("---- destFull Negative \(self.isDestFull)")
+        print(data)
         
         
         

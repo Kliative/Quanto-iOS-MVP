@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         if userDefaults.bool(forKey:"onboardingComplete") {
             initialVC = sb.instantiateViewController(withIdentifier: "MainApp")
         }
-        
+        //initiate Onbaording Screens
         window?.rootViewController = initialVC
         window?.makeKeyAndVisible()
         
@@ -52,9 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         application.registerForRemoteNotifications()
-        
+        //Firebase
         FIRApp.configure()
+        //Offline Data store
         FIRDatabase.database().persistenceEnabled = true
+        let all = FIRDatabase.database().reference()
+        all.keepSynced(true)
         return true
     }
 

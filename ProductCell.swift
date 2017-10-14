@@ -46,12 +46,12 @@ class ProductCell: UITableViewCell {
                 
                 switch (baseProdObj.key)
                 {
-                case "ImpBeer":
-                    self.productNameLbl.text = "Imported Beer"
+                case "ImpBeerRestBottle":
+                    self.productNameLbl.text = "Imported Beer Bottle"
                     self.productIcon.image = UIImage(named:"ImpBeer")
                     
-                case "DomBeer":
-                    self.productNameLbl.text = "Domestic Beer"
+                case "DomBeerRestPint":
+                    self.productNameLbl.text = "Domestic Beer Pint"
                     self.productIcon.image = UIImage(named:"DomBeer")
                     
                 case "WineBottle":

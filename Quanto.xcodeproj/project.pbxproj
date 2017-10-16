@@ -36,6 +36,7 @@
 		7A1DBEBE1EED802600790B54 /* Bariol_Thin_Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */; };
 		7A1DBEBF1EED802600790B54 /* Bariol_Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */; };
 		7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1DBEC01EF172BE00790B54 /* CityCell.swift */; };
+		7A382FF41F9507680061762B /* QuantoCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A382FF21F9507680061762B /* QuantoCoreData.xcdatamodeld */; };
 		7A75586F1EF684E500EC2396 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A75586D1EF684E500EC2396 /* LaunchScreen.storyboard */; };
 		7AF443221F066A6E006C8958 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF443211F066A6E006C8958 /* OnBoarding.swift */; };
 		7AF443261F066C24006C8958 /* OnBoardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF443251F066C24006C8958 /* OnBoardingVC.swift */; };
@@ -96,6 +97,7 @@
 		7A1DBEB71EED802600790B54 /* Bariol_Thin_Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin_Italic.otf; sourceTree = "<group>"; };
 		7A1DBEB81EED802600790B54 /* Bariol_Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Thin.otf; sourceTree = "<group>"; };
 		7A1DBEC01EF172BE00790B54 /* CityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		7A382FF31F9507680061762B /* QuantoCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = QuantoCoreData.xcdatamodel; sourceTree = "<group>"; };
 		7A75586E1EF684E500EC2396 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Quanto/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A849D5D1F14E3C700079161 /* Quanto.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Quanto.entitlements; sourceTree = "<group>"; };
 		7AF443211F066A6E006C8958 /* OnBoarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				7A75586D1EF684E500EC2396 /* LaunchScreen.storyboard */,
 				083AF8581E9F9A3F00AE5445 /* Info.plist */,
 				7A111ED61EF812A40042ED78 /* GoogleService-Info.plist */,
+				7A382FF21F9507680061762B /* QuantoCoreData.xcdatamodeld */,
 			);
 			path = Quanto;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				7AF443261F066C24006C8958 /* OnBoardingVC.swift in Sources */,
 				7A111EDD1EF8165F0042ED78 /* DestCurrVC.swift in Sources */,
 				7A111ED51EF811650042ED78 /* ExchangeService.swift in Sources */,
+				7A382FF41F9507680061762B /* QuantoCoreData.xcdatamodeld in Sources */,
 				7A1DBEC11EF172BE00790B54 /* CityCell.swift in Sources */,
 				7A111EDF1EF816720042ED78 /* BaseCurrVC.swift in Sources */,
 				083AF84D1E9F9A3F00AE5445 /* AppDelegate.swift in Sources */,
@@ -925,6 +929,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7A382FF21F9507680061762B /* QuantoCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7A382FF31F9507680061762B /* QuantoCoreData.xcdatamodel */,
+			);
+			currentVersion = 7A382FF31F9507680061762B /* QuantoCoreData.xcdatamodel */;
+			path = QuantoCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 083AF8411E9F9A3E00AE5445 /* Project object */;
 }
